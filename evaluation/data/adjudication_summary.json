@@ -1,0 +1,364 @@
+{
+  "total_disagreements": 39,
+  "system_credited": 21,
+  "gold_credited": 17,
+  "both_defensible": 0,
+  "neither_right": 1,
+  "raw_correct": 66,
+  "total_golden_set": 105,
+  "adjudicated_correct": 87,
+  "adjudicated_accuracy_pct": 82.9,
+  "cases": [
+    {
+      "id": "case_01",
+      "source_file": "Accountant.pdf",
+      "requirement": "Proficiency in account reconciliation and month-end close processes.",
+      "gold_label": "Match",
+      "system_label": "Partial Match",
+      "human_notes": "Nobody is proficient, but this sentence shows proper experience which can be considered. Though the word 'expertise' would have increased the chances of  a Match.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_02",
+      "source_file": "Accountant.pdf",
+      "requirement": "Experience managing staff or leading a team of accountants.",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Can't link the experience of managing staff and leading the team with the cv_evidence",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_03",
+      "source_file": "Advocate.pdf",
+      "requirement": "Proficiency in handling chargeback procedures and Visa/MasterCard regu",
+      "gold_label": "Partial Match",
+      "system_label": "Match",
+      "human_notes": "cv_evidence shows thorough knowledge along with specific keywords",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_04",
+      "source_file": "Advocate.pdf",
+      "requirement": "Experience managing financial budgets and forecasting for departmental",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "cv_evidence shows experience related to managing financial budgets but lacks in forcasting part.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_05",
+      "source_file": "Aviation.pdf",
+      "requirement": "Formal certification in emergency medical technician (EMT) procedures.",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "has certifications but does not specify EMT",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_06",
+      "source_file": "Banking.pdf",
+      "requirement": "Proficiency in using Salesforce CRM for client relationship management",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "cv_evidence shows engagment in customer retention but lacks in the Salersforce CRM usage.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_07",
+      "source_file": "Civil Engineer.pdf",
+      "requirement": "Experience in construction project management and infrastructure proje",
+      "gold_label": "Match",
+      "system_label": "Partial Match",
+      "human_notes": "Mention of a company and proper position, but the experience of projects seems a bit dicey through this cv_evidence.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_08",
+      "source_file": "Civil Engineer.pdf",
+      "requirement": "Proficiency in AutoCAD and BIM software for structural drafting",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "cv_evidence shows expertise in construction projects but no mention of proficiency in any software for the same.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_09",
+      "source_file": "Civil Engineer.pdf",
+      "requirement": "Experience with LEED-certified green building projects",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Mention of compliance of authorities and surrounding areas meet the criteria for green building projects but no mention of LEED-certified.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_10",
+      "source_file": "Data Science.pdf",
+      "requirement": "Experience teaching high school English literature and AP courses",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Since cv_evidence shows classroom teacher of 5th grade, which can be counted as high school, there is some experience, but no mention of AP Courses.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_11",
+      "source_file": "Data Science.pdf",
+      "requirement": "Proficiency with Canvas Learning Management System",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "mention of various platforms but requirement of Canvas is not satisfied.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_12",
+      "source_file": "DevOps Engineer.pdf",
+      "requirement": "Minimum 5 years of hands-on experience with Amazon Web Services (AWS) ",
+      "gold_label": "Match",
+      "system_label": "No Match",
+      "human_notes": "Though AWS and DevOps, Build Release Engineer and Linux Administration are not the same they have a heavy overlap and frequently complement each other in modern tech stacks.",
+      "outcome": "neither_right_answer_is_partial_match"
+    },
+    {
+      "id": "case_13",
+      "source_file": "DevOps Engineer.pdf",
+      "requirement": "Proficiency in containerization technologies specifically using Docker",
+      "gold_label": "Partial Match",
+      "system_label": "Match",
+      "human_notes": "There is a mention of experience with Docker but no mention of Kubernetes.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_14",
+      "source_file": "DevOps Engineer.pdf",
+      "requirement": "Proven experience implementing Infrastructure as Code (IaC) using Terr",
+      "gold_label": "Match",
+      "system_label": "Partial Match",
+      "human_notes": "most of the keywords present in the cv_Evidence align with the requirement altough IaC ain;t there.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_15",
+      "source_file": "Digital Media.pdf",
+      "requirement": "Experience using Heidelberg offset printing presses.",
+      "gold_label": "Partial Match",
+      "system_label": "Match",
+      "human_notes": "Shows some relevance to printing press but no specific mention og Heidelberg effect.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_16",
+      "source_file": "DotNet Developer.pdf",
+      "requirement": "Experience migrating legacy SOAP web services to modern RESTful APIs.",
+      "gold_label": "Partial Match",
+      "system_label": "Match",
+      "human_notes": "Has experience related to migration bit not specific to the requirement.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_17",
+      "source_file": "DotNet Developer.pdf",
+      "requirement": "Working knowledge of enterprise database systems such as Oracle or MS ",
+      "gold_label": "Partial Match",
+      "system_label": "Match",
+      "human_notes": "Inclusion of MS SQL Server as well as Oracle in the cv_evidence which totally matched the requirement though can't confirm what the sente",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_18",
+      "source_file": "Electrical Engineer.pdf",
+      "requirement": "Experience in the design of specialized PCBs using ORCAD and PADS.",
+      "gold_label": "Match",
+      "system_label": "Partial Match",
+      "human_notes": "cv_evidence shows proper experience in design of specialized PCBs.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_19",
+      "source_file": "Electrical Engineer.pdf",
+      "requirement": "Proficiency in MATLAB for advanced signal processing simulations.",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "No mention of MATLAB.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_20",
+      "source_file": "Electrical Engineer.pdf",
+      "requirement": "Experience with Altium Designer for multi-layer PCB layout.",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "No mention of Altium Designer",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_21",
+      "source_file": "ETL Developer.pdf",
+      "requirement": "Experience with Oracle database development, writing complex SQL queri",
+      "gold_label": "Match",
+      "system_label": "Partial Match",
+      "human_notes": "Although no mention of Oracle database, there is a mention of other requirements.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_22",
+      "source_file": "ETL Developer.pdf",
+      "requirement": "Proficiency in Talend Data Integration for ETL pipeline development.",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "cv_evidence does not entail the requirement.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_23",
+      "source_file": "ETL Developer.pdf",
+      "requirement": "Hands-on cloud data warehouse experience using Snowflake.",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Although mention of lot of enviroments, no mention of specific requirement.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_24",
+      "source_file": "HR.pdf",
+      "requirement": "Experience managing international HR operations and global payroll.",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "There is evidence of managing operations related to HR, but a main criteria of being international is missing!",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_25",
+      "source_file": "IT.pdf",
+      "requirement": "Proficiency in JavaScript frameworks such as React or Angular for mode",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "cv_evidence entails being able to develop but not proficiency.",
+      "outcome": "gold_right"
+    },
+    {
+      "id": "case_26",
+      "source_file": "IT.pdf",
+      "requirement": "Certified ScrumMaster (CSM) or formal agile project management certifi",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "requirement specifies being certified which is missing in the cv_Evidence.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_27",
+      "source_file": "Java Developer.pdf",
+      "requirement": "Professional experience building single-page applications using Vue.js",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Vue.js is an application which is not mentioned in the evidence.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_28",
+      "source_file": "Java Developer.pdf",
+      "requirement": "Experience managing cloud infrastructure using Kubernetes orchestratio",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Requirement mentions experience related to managing cloud infrastructure but no mention of the same in cv_Evidence.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_29",
+      "source_file": "Mechanical Engineer.pdf",
+      "requirement": "Proficiency in Python or C++ programming for hardware simulation",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Need python or C++ proficiency which is not present in the cv_evidence.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_30",
+      "source_file": "Mechanical Engineer.pdf",
+      "requirement": "Experience managing cross-functional teams in agile product developmen",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Requirement mentions handling teams, but cv_Evidence is very short and vague.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_31",
+      "source_file": "Python Developer.pdf",
+      "requirement": "Proficiency in Python programming for automation and backend services.",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Specific requirement of Python programming proficiency is not satisfied.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_32",
+      "source_file": "Python Developer.pdf",
+      "requirement": "Hands-on experience with Docker and Kubernetes for containerized deplo",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "cv_evidence should contain atleast some of the keywords mentioned in the requirement.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_33",
+      "source_file": "React Developer.pdf",
+      "requirement": "Minimum 2 years of experience developing applications using Spring Boo",
+      "gold_label": "Match",
+      "system_label": "Partial Match",
+      "human_notes": "There is mention of developing applications but no mention of minimum years experience.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_34",
+      "source_file": "React Developer.pdf",
+      "requirement": "Experience using enterprise search platforms like Elasticsearch for lo",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Although the platform might offer same service, the requirement mentions a different platform.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_35",
+      "source_file": "Sales.pdf",
+      "requirement": "Proficiency in advanced data analytics tools such as Tableau or Power ",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "There is no mention of any analytics tool such as Tableu or Power BI.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_36",
+      "source_file": "SQL Developer.pdf",
+      "requirement": "Experience with cloud database platforms such as Amazon Redshift or Sn",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Although the cv_Evidence shows a very deep experience, it varies from the requirement.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_37",
+      "source_file": "SQL Developer.pdf",
+      "requirement": "Bachelor's degree in Software Engineering or a closely related technic",
+      "gold_label": "Partial Match",
+      "system_label": "Match",
+      "human_notes": "A Bachelor's degree in Software Engineering is very similar to the same in Computer Science.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_38",
+      "source_file": "Web Developer.pdf",
+      "requirement": "Experience building modern user interfaces with Vue.js.",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Although the evidence mentions a very good match, their is no mention of Vue.js given in the requirement.",
+      "outcome": "system_right"
+    },
+    {
+      "id": "case_39",
+      "source_file": "Web Developer.pdf",
+      "requirement": "Proficiency in enterprise backend development using Java and Spring Bo",
+      "gold_label": "Partial Match",
+      "system_label": "No Match",
+      "human_notes": "Need mention of Java or Spring Boot specifically.",
+      "outcome": "system_right"
+    }
+  ]
+}

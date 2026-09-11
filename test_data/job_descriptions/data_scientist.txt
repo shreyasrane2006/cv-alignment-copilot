@@ -1,0 +1,28 @@
+COMPANY BLURB  
+NexaLabs is a cutting-edge analytics firm specializing in leveraging data to drive business innovation and strategic decision-making across industries. We combine deep technical expertise with a passion for solving complex problems, making us a dynamic place for data scientists who want to make an impact.  
+
+RESPONSIBILITIES  
+- Analyze large datasets to uncover insights and trends that inform business strategies  
+- Collaborate with cross-functional teams to translate business needs into data-driven solutions  
+- Develop and deploy predictive models to improve operational efficiency and customer outcomes  
+- Conduct rigorous statistical analysis to validate hypotheses and support data-informed decisions  
+- Communicate findings through visualizations and reports to stakeholders at all levels  
+- Continuously refine data pipelines and methodologies to enhance accuracy and scalability
+
+Qualification
+
+Required
+
+- Python
+- pandas
+- scikit-learn
+- SQL
+- classical ML models (regression, random forests)
+- Hands-on deep learning experience with PyTorch or TensorFlow
+- Experience deploying ML models to production
+- Big data tools such as Spark or Hadoop
+
+Preferred
+
+- Experience with cloud ML platforms (SageMaker or Vertex AI)
+- A/B testing and experimentation design

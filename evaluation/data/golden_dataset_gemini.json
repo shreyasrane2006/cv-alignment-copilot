@@ -1,0 +1,737 @@
+[
+    {
+        "requirement": "Experience with GAAP (Generally Accepted Accounting Principles) compliance and financial reporting.",
+        "cv_evidence": "Experienced with General Accepted Accounting Principles (GAAP) and internal control requirements.",
+        "gold_label": "Match",
+        "rationale": "The candidate explicitly lists experience with General Accepted Accounting Principles in their summary.",
+        "source_file": "Accountant.pdf"
+    },
+    {
+        "requirement": "Proficiency in account reconciliation and month-end close processes.",
+        "cv_evidence": "Reviews monthly trail balances for validity of reported items to include budget object and revenue source codes, reports discrepancies found and takes corrective action when necessary.",
+        "gold_label": "Match",
+        "rationale": "The CV directly details the execution of monthly trail balance reviews and resolving account discrepancies.",
+        "source_file": "Accountant.pdf"
+    },
+    {
+        "requirement": "Expertise in SAP Financial Accounting (FI) modules.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "The candidate has experience with other systems like FMS, VATAS, and Delphi, but SAP FI is not mentioned anywhere in the CV.",
+        "source_file": "Accountant.pdf"
+    },
+    {
+        "requirement": "Experience managing staff or leading a team of accountants.",
+        "cv_evidence": "Provided a wide variety of customer service to include but not limited to; financial systems troubleshooting, researching and developing enhancement procedures, resolving isolated issues and providing hands on user guide assistance...",
+        "gold_label": "Partial Match",
+        "rationale": "While the candidate provided support and guidance, the CV lacks explicit evidence of direct line management or formal supervision of accounting staff.",
+        "source_file": "Accountant.pdf"
+    },
+    {
+        "requirement": "Familiarity with Federal financial regulations such as the Federal Managers' Financial Integrity Act (FMFIA).",
+        "cv_evidence": "Research, review, and analyze complicated inquiry requests from vendors, veterans, and Federal Employees to determine proper resolutions methods that are in-line with the Improper Payments Elimination and Recovery Act (IPERA)...",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate shows strong federal financial regulatory experience with IPERA and OMB Circulars, but FMFIA specifically is not mentioned.",
+        "source_file": "Accountant.pdf"
+    },
+    {
+        "requirement": "Experience in handling high volume inbound customer calls in a call center environment.",
+        "cv_evidence": "Handle high volume of inbound customer calls",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly states experience with handling high volume inbound customer calls at Amazon.",
+        "source_file": "Advocate.pdf"
+    },
+    {
+        "requirement": "Management experience leading a team of over 20 employees.",
+        "cv_evidence": "Supervise, coach and counsel staff of a maximum of 25 employees",
+        "gold_label": "Match",
+        "rationale": "The CV confirms experience supervising a staff of up to 25 employees at Frontier Communications.",
+        "source_file": "Advocate.pdf"
+    },
+    {
+        "requirement": "Proficiency in handling chargeback procedures and Visa/MasterCard regulations.",
+        "cv_evidence": "Thorough knowledge and experience in: All Chargeback Procedures, First Assist, TSYS, and Visa & MasterCard regulations, Office Communicator",
+        "gold_label": "Partial Match",
+        "rationale": "The CV lists general knowledge of chargebacks and regulations, but does not detail recent hands-on proficiency in current roles.",
+        "source_file": "Advocate.pdf"
+    },
+    {
+        "requirement": "Experience managing financial budgets and forecasting for departmental operations.",
+        "cv_evidence": "Routinely prepared and evaluated CRM reports to identify problems and areas for improvement.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has administrative and CRM reporting experience, but lacks direct evidence of financial budget management.",
+        "source_file": "Advocate.pdf"
+    },
+    {
+        "requirement": "Professional certification in Six Sigma Green or Black Belt.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of any Six Sigma certification anywhere in the CV.",
+        "source_file": "Advocate.pdf"
+    },
+    {
+        "requirement": "Experience with maritime operations, maintenance requirements, and cargo handling.",
+        "cv_evidence": "Skilled Boatswain's Mate with extensive and dedicated service in US Navy. Brings expert knowledge of marine operations, maintenance requirements and cargo handling.",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly highlights expert knowledge of marine operations, maintenance requirements, and cargo handling in the summary.",
+        "source_file": "Aviation.pdf"
+    },
+    {
+        "requirement": "Proficiency in providing patient care, assessing patient needs, and maintaining medical records.",
+        "cv_evidence": "Actively oversaw patient and resident care activities, medical records and execution of physician orders.",
+        "gold_label": "Match",
+        "rationale": "The CV directly demonstrates experience overseeing patient care activities and medical records during service as a Hospital Corpsman.",
+        "source_file": "Aviation.pdf"
+    },
+    {
+        "requirement": "Demonstrated expertise in large-scale vessel dry-docking and overhaul procedures.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of vessel dry-docking or major ship overhaul procedures anywhere in the work history.",
+        "source_file": "Aviation.pdf"
+    },
+    {
+        "requirement": "Background in retail sales management, inventory control, and visual merchandising.",
+        "cv_evidence": "Arranged merchandise for display to highlight new styles, attract customers and enhance sales. Managed and processed customer payments.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has general retail sales experience and basic merchandising, but lacks official management or supervisory titles in a retail setting.",
+        "source_file": "Aviation.pdf"
+    },
+    {
+        "requirement": "Formal certification in emergency medical technician (EMT) procedures.",
+        "cv_evidence": "Caring nurse assistant brings top-notch patient care and assessment abilities. Expertly approaches situations with knowledge, training and eye for critical details... Certified in CPR.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has medical training as a Hospital Corpsman and CPR certification, but a formal EMT certification is not explicitly listed.",
+        "source_file": "Aviation.pdf"
+    },
+    {
+        "requirement": "Experience with regulatory compliance such as CTR and SAR reporting in a banking environment.",
+        "cv_evidence": "Work with regulatory representatives to complete accurate filings and maintain compliance ( CTR/ SAR reporting).",
+        "gold_label": "Match",
+        "rationale": "The candidate explicitly lists working with regulatory representatives and handling CTR/SAR reporting in their current role as Assistant Vice-President of Retail Banking.",
+        "source_file": "Banking.pdf"
+    },
+    {
+        "requirement": "Possession of a Master of Business Administration (MBA) degree.",
+        "cv_evidence": "MBA; 02/2015; University of Phoenix - Arlington, VA",
+        "gold_label": "Match",
+        "rationale": "The CV clearly documents an MBA degree obtained from the University of Phoenix in February 2015.",
+        "source_file": "Banking.pdf"
+    },
+    {
+        "requirement": "Demonstrated expertise in commercial loan underwriting and portfolio management.",
+        "cv_evidence": "Review customer applications against established parameters to make sound decisions regarding approvals, exceptions, rejection or modification requirements.",
+        "gold_label": "Partial Match",
+        "rationale": "The CV shows general credit application review and approval experience, but does not explicitly specify large-scale commercial loan underwriting or portfolio management.",
+        "source_file": "Banking.pdf"
+    },
+    {
+        "requirement": "Proficiency in using Salesforce CRM for client relationship management.",
+        "cv_evidence": "Engage in customer retention practices by providing customers with personal touch resolutions, that resulted in efficient, effective and beneficial outcomes to customer complaints",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has extensive customer relationship and retention experience, but the CV fails to mention specific proficiency in the Salesforce CRM tool.",
+        "source_file": "Banking.pdf"
+    },
+    {
+        "requirement": "Certified Regulatory Compliance Manager (CRCM) professional designation.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of the CRCM certification anywhere in the candidate's education, training, or skills sections.",
+        "source_file": "Banking.pdf"
+    },
+    {
+        "requirement": "Professional Engineer (PE) certification",
+        "cv_evidence": "Professional Engineering Certification, 2017",
+        "gold_label": "Match",
+        "rationale": "The candidate explicitly lists holding the Professional Engineering Certification obtained in 2017.",
+        "source_file": "Civil Engineer.pdf"
+    },
+    {
+        "requirement": "Experience in construction project management and infrastructure projects",
+        "cv_evidence": "McCarthy Building Companies, Inc., 09/2015 - Present, Civil & Structural Engineer",
+        "gold_label": "Match",
+        "rationale": "The candidate has extensive ongoing experience as a Civil & Structural Engineer managing large construction and infrastructure projects.",
+        "source_file": "Civil Engineer.pdf"
+    },
+    {
+        "requirement": "Proficiency in AutoCAD and BIM software for structural drafting",
+        "cv_evidence": "Expert in construction project lifecycles including detailed scheduling, engineering and architectural drawing interpretation",
+        "gold_label": "Partial Match",
+        "rationale": "The CV mentions architectural drawing interpretation, but does not explicitly name AutoCAD or BIM software.",
+        "source_file": "Civil Engineer.pdf"
+    },
+    {
+        "requirement": "Experience with LEED-certified green building projects",
+        "cv_evidence": "Performed daily safety, environmental health, and housekeeping checks to ensure that the site area and surrounding areas meet the compliance of relevant government authorities.",
+        "gold_label": "Partial Match",
+        "rationale": "While the candidate has environmental health and safety experience, specific LEED certification experience is not explicitly documented.",
+        "source_file": "Civil Engineer.pdf"
+    },
+    {
+        "requirement": "Background in municipal water resource management and wastewater treatment plants",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of municipal water resource management or wastewater treatment experience anywhere in the candidate's CV.",
+        "source_file": "Civil Engineer.pdf"
+    },
+    {
+        "requirement": "Missouri Certified Teacher with Elementary Endorsement",
+        "cv_evidence": "Missouri Certified Teacher with Elementary Endorsement",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly lists Missouri Certified Teacher with Elementary Endorsement under the skills section.",
+        "source_file": "Data Science.pdf"
+    },
+    {
+        "requirement": "Master of Arts in Curriculum and Instruction",
+        "cv_evidence": "Master of Arts: Curriculum and Instruction, 2015, University of Missouri-Kansas City",
+        "gold_label": "Match",
+        "rationale": "The CV clearly states the candidate holds a Master of Arts in Curriculum and Instruction from the University of Missouri-Kansas City.",
+        "source_file": "Data Science.pdf"
+    },
+    {
+        "requirement": "Experience teaching high school English literature and AP courses",
+        "cv_evidence": "Classroom Teacher - Math, ELA, Science - 5th Grade",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has extensive ELA experience and a B.A. in English Literature, but the teaching experience is at the elementary and intermediate 4th/5th grade levels rather than high school AP.",
+        "source_file": "Data Science.pdf"
+    },
+    {
+        "requirement": "Proficiency with Canvas Learning Management System",
+        "cv_evidence": "Expert knowledge of Zoom, MS Office, G Suite, Google Classroom, Nearpod, and IXL",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate demonstrates strong ed-tech competency with Zoom, Google Classroom, and Nearpod, but does not explicitly mention Canvas.",
+        "source_file": "Data Science.pdf"
+    },
+    {
+        "requirement": "Bilingual fluency in Spanish and English for dual-language instruction",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of bilingual proficiency or Spanish language skills anywhere in the CV.",
+        "source_file": "Data Science.pdf"
+    },
+    {
+        "requirement": "Minimum 5 years of hands-on experience with Amazon Web Services (AWS) infrastructure management.",
+        "cv_evidence": "Excellent platform knowledge with Linux, Automation and Open source software tools with around 6 years of experience includes DevOps, Build Release Engineer and Linux Administration.",
+        "gold_label": "Match",
+        "rationale": "The candidate has around 6 years of experience encompassing AWS and DevOps, directly satisfying the multi-year AWS management requirement.",
+        "source_file": "DevOps Engineer.pdf"
+    },
+    {
+        "requirement": "Proficiency in containerization technologies specifically using Docker and Kubernetes.",
+        "cv_evidence": "Installed Docker, created Dockerfile to create containers and integrated Docker with Jenkins to do build on containers and to achieve Continuous Delivery goal on high scalable environment.",
+        "gold_label": "Partial Match",
+        "rationale": "The CV shows strong experience with Docker and containerization, but lacks explicit mention of Kubernetes orchestration.",
+        "source_file": "DevOps Engineer.pdf"
+    },
+    {
+        "requirement": "Extensive production experience utilizing Google Cloud Platform (GCP) or Microsoft Azure.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "The candidate's cloud experience is exclusively centered around AWS, with no mention of GCP or Azure.",
+        "source_file": "DevOps Engineer.pdf"
+    },
+    {
+        "requirement": "Proven experience implementing Infrastructure as Code (IaC) using Terraform and Ansible.",
+        "cv_evidence": "Experience in setting up the build and deployment automation for Terraform scripts using Jenkins. Worked on Ansible, used YML packages for installing, configuring push to make changes in time.",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly details practical implementations using both Terraform and Ansible for automation.",
+        "source_file": "DevOps Engineer.pdf"
+    },
+    {
+        "requirement": "Experience configuring and managing monitoring platforms like Datadog and Dynatrace.",
+        "cv_evidence": "Used New Relic for the infrastructure monitoring.Worked for multiple environments, including non-production and production environments.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate demonstrates application monitoring experience using New Relic, but does not mention Datadog or Dynatrace.",
+        "source_file": "DevOps Engineer.pdf"
+    },
+    {
+        "requirement": "Experience operating digital press equipment in a high-production environment.",
+        "cv_evidence": "Quadgraphics - Operate and Manage Digital Press Area, Brucetown, VA 06/2006 - Current",
+        "gold_label": "Match",
+        "rationale": "The candidate explicitly lists long-term current employment operating a digital press area at Quadgraphics.",
+        "source_file": "Digital Media.pdf"
+    },
+    {
+        "requirement": "Ability to lift up to 50 pounds during warehouse and shipping operations.",
+        "cv_evidence": "Lifts up to 50 pounds",
+        "gold_label": "Match",
+        "rationale": "Lifting up to 50 pounds is explicitly listed under the candidate's skills section.",
+        "source_file": "Digital Media.pdf"
+    },
+    {
+        "requirement": "Experience using Heidelberg offset printing presses.",
+        "cv_evidence": "Produced and operated offset printing press for maximum efficiency and production.",
+        "gold_label": "Partial Match",
+        "rationale": "The CV mentions operating offset printing presses generally, but does not specifically name Heidelberg equipment.",
+        "source_file": "Digital Media.pdf"
+    },
+    {
+        "requirement": "Possession of a commercial driver's license (CDL) for transport.",
+        "cv_evidence": "HazMat endorsement Tanker endorsement",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate lists HazMat and Tanker endorsements indicating heavy transport familiarity, but does not explicitly state having a CDL.",
+        "source_file": "Digital Media.pdf"
+    },
+    {
+        "requirement": "Proficiency in operating computerized color matching spectrophotometers.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of operating spectrophotometers or specialized computerized color matching tools anywhere in the CV.",
+        "source_file": "Digital Media.pdf"
+    },
+    {
+        "requirement": "Minimum 5 years of experience developing applications using C# and ASP.NET MVC.",
+        "cv_evidence": "Dot Net Developer I with around 7years of experience in IT industry... MVC 4.0 with Razor... C#, HTML5.",
+        "gold_label": "Match",
+        "rationale": "The candidate has about 7 years of overall IT experience and explicitly lists C# and ASP.NET MVC in their work experience.",
+        "source_file": "DotNet Developer.pdf"
+    },
+    {
+        "requirement": "Experience building responsive web user interfaces using Bootstrap and JavaScript frameworks like AngularJS or jQuery.",
+        "cv_evidence": "Designing front end using Bootstrap, HTML, CSS, JQuery, Javascript and AngularJS.",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly details front-end development responsibilities utilizing Bootstrap, jQuery, JavaScript, and AngularJS.",
+        "source_file": "DotNet Developer.pdf"
+    },
+    {
+        "requirement": "Proficiency in modern frontend frameworks like React or Vue.js for single-page applications.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "The CV does not mention React, Vue.js, or any modern component-based JavaScript frameworks other than AngularJS and Knockout.js.",
+        "source_file": "DotNet Developer.pdf"
+    },
+    {
+        "requirement": "Experience migrating legacy SOAP web services to modern RESTful APIs.",
+        "cv_evidence": "Involving in migrating the data from SOA to restful services using ASP.Net Web API.",
+        "gold_label": "Partial Match",
+        "rationale": "While the candidate has experience with RESTful services via ASP.NET Web API, the requirement specifically states migrating from legacy SOAP services, whereas the CV states migrating from SOA.",
+        "source_file": "DotNet Developer.pdf"
+    },
+    {
+        "requirement": "Working knowledge of enterprise database systems such as Oracle or MS SQL Server.",
+        "cv_evidence": "Databases MS SQL Server ORACLE, MS-Access, DB2 UDB V8.1, V9.1, V9.5, V9.7, V10.1...",
+        "gold_label": "Partial Match",
+        "rationale": "The CV lists MS SQL Server and Oracle under databases, but does not provide specific project examples or achievements demonstrating depth of database administration or complex querying.",
+        "source_file": "DotNet Developer.pdf"
+    },
+    {
+        "requirement": "Experience in the design of specialized PCBs using ORCAD and PADS.",
+        "cv_evidence": "Involved in the design of 200+ specialized PCBs in the last 18 months.",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly mentions extensive PCB design experience matching the required tools and scale.",
+        "source_file": "Electrical Engineer.pdf"
+    },
+    {
+        "requirement": "Ph.D. in Signal Process Electronics.",
+        "cv_evidence": "Holds a Ph.D. in Signal Process Electronics.",
+        "gold_label": "Match",
+        "rationale": "The candidate explicitly lists the required Ph.D. degree in the profile section.",
+        "source_file": "Electrical Engineer.pdf"
+    },
+    {
+        "requirement": "Proficiency in MATLAB for advanced signal processing simulations.",
+        "cv_evidence": "Python, C / C++ / C#",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has programming skills in Python and C++, but MATLAB is not explicitly mentioned on the CV.",
+        "source_file": "Electrical Engineer.pdf"
+    },
+    {
+        "requirement": "Experience with Altium Designer for multi-layer PCB layout.",
+        "cv_evidence": "Eagle, PADS and ORCAD, PADS, and Eagle.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has strong PCB design experience with Eagle and ORCAD, but Altium Designer is not listed.",
+        "source_file": "Electrical Engineer.pdf"
+    },
+    {
+        "requirement": "Certified Six Sigma Black Belt for manufacturing process optimization.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of a Six Sigma certification anywhere in the candidate's profile or history.",
+        "source_file": "Electrical Engineer.pdf"
+    },
+    {
+        "requirement": "Expertise in building and maintaining mappings, workflows, and sessions using Informatica PowerCenter for enterprise data warehousing.",
+        "cv_evidence": "Designed and developed Informatica mappings, workflows, and sessions as per technical design specifications in Informatica Powercenter Developer.",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly mentions designing and developing Informatica mappings, workflows, and sessions in PowerCenter.",
+        "source_file": "ETL Developer.pdf"
+    },
+    {
+        "requirement": "Experience with Oracle database development, writing complex SQL queries, and performance tuning.",
+        "cv_evidence": "Analyzed existing SQL queries, tables and indexes for performance tuning and advised based on the loading time.",
+        "gold_label": "Match",
+        "rationale": "The CV clearly demonstrates hands-on experience with SQL query analysis, performance tuning, and Oracle databases.",
+        "source_file": "ETL Developer.pdf"
+    },
+    {
+        "requirement": "Proficiency in Talend Data Integration for ETL pipeline development.",
+        "cv_evidence": "Designed and developed Informatica mappings, sessions for data loads and data cleansing.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has strong ETL experience, but specifically uses Informatica PowerCenter rather than Talend.",
+        "source_file": "ETL Developer.pdf"
+    },
+    {
+        "requirement": "Hands-on cloud data warehouse experience using Snowflake.",
+        "cv_evidence": "Environment: Informatica PowerCenter 9.6.1/9.5.1, 9.2, B2B DXDT, MS SQL Server (2008, c2014), Oracle 11g, DB2, Flat files.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate lists Snowflake as an area of knowledge in their skills section, but lacks explicit project evidence of implementing a cloud data warehouse in Snowflake.",
+        "source_file": "ETL Developer.pdf"
+    },
+    {
+        "requirement": "Demonstrated leadership experience managing a team of junior ETL developers.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of management, leadership, or direct supervision of junior developers in any of the employment descriptions.",
+        "source_file": "ETL Developer.pdf"
+    },
+    {
+        "requirement": "Experience in talent acquisition and recruitment strategy.",
+        "cv_evidence": "Managed all aspects of human resources including recruitment, employee relations, and performance management.",
+        "gold_label": "Match",
+        "rationale": "The candidate explicitly lists managing recruitment as part of their core responsibilities at ABC Company.",
+        "source_file": "HR.pdf"
+    },
+    {
+        "requirement": "Demonstrated history of implementing diversity and inclusion initiatives.",
+        "cv_evidence": "Developed and implemented diversity and inclusion initiatives resulting in a 10% increase in minority hires.",
+        "gold_label": "Match",
+        "rationale": "The CV directly highlights a specific D&I initiative with measurable hiring outcomes.",
+        "source_file": "HR.pdf"
+    },
+    {
+        "requirement": "Experience managing international HR operations and global payroll.",
+        "cv_evidence": "Supported HR operations including recruitment, benefits administration, and employee development.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has general HR operations and benefits administration experience, but there is no mention of international scope.",
+        "source_file": "HR.pdf"
+    },
+    {
+        "requirement": "Background in designing corporate wellness programs.",
+        "cv_evidence": "Developed and implemented employee training programs resulting in a 20% improvement in overall job performance.",
+        "gold_label": "Partial Match",
+        "rationale": "While the candidate has experience creating employee programs, they are focused on training rather than physical or mental wellness.",
+        "source_file": "HR.pdf"
+    },
+    {
+        "requirement": "Certification in HR management such as SHRM-SCP or CIPD.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "The CV does not mention any professional HR certifications.",
+        "source_file": "HR.pdf"
+    },
+    {
+        "requirement": "Experience with Python for spatial data analysis and modeling applications.",
+        "cv_evidence": "Designs, develops, and tests a fully-functional modular software application for spatial data analysis and modelling using Python and ArcGIS functions",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly mentions designing software applications for spatial data analysis and modeling using Python.",
+        "source_file": "IT.pdf"
+    },
+    {
+        "requirement": "Hold a Bachelor's Degree in Computer Science or a related technical field.",
+        "cv_evidence": "UNIVERSITY OF MINNESOTA, MORRIS Bachelor's Degree in Computer Science",
+        "gold_label": "Match",
+        "rationale": "The CV clearly states the candidate earned a Bachelor's Degree in Computer Science.",
+        "source_file": "IT.pdf"
+    },
+    {
+        "requirement": "Demonstrated expertise in deploying cloud infrastructure on AWS or Azure platforms.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of cloud platforms like AWS or Azure anywhere in the candidate's work history.",
+        "source_file": "IT.pdf"
+    },
+    {
+        "requirement": "Proficiency in JavaScript frameworks such as React or Angular for modern web development.",
+        "cv_evidence": "Able to develop HTML/HTML5, CSS/CSS3 and JavaScript",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has general JavaScript experience but does not mention specific modern frameworks like React or Angular.",
+        "source_file": "IT.pdf"
+    },
+    {
+        "requirement": "Certified ScrumMaster (CSM) or formal agile project management certification.",
+        "cv_evidence": "Understanding of agile and software development lifecycle, especially debugging and browser/platform compatibility testing",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has working knowledge of agile methodologies, but lacks a formal certification.",
+        "source_file": "IT.pdf"
+    },
+    {
+        "requirement": "Experience developing backend services in Java using Spring Boot.",
+        "cv_evidence": "Developed back-end logic in Java to implement a state-wide underwriting model",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly demonstrates backend Java development experience for scalable applications.",
+        "source_file": "Java Developer.pdf"
+    },
+    {
+        "requirement": "Database architecture and management experience utilizing Amazon Redshift.",
+        "cv_evidence": "Created the database structure and logic in Redshift for a new insurance product",
+        "gold_label": "Match",
+        "rationale": "The CV clearly mentions creating database structures and logic specifically inside AWS Redshift.",
+        "source_file": "Java Developer.pdf"
+    },
+    {
+        "requirement": "Professional experience building single-page applications using Vue.js.",
+        "cv_evidence": "Proactively and strategically worked on the customer-facing insurance application to build conditional components in Angular",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has strong frontend experience with Angular rather than the requested Vue.js.",
+        "source_file": "Java Developer.pdf"
+    },
+    {
+        "requirement": "Experience managing cloud infrastructure using Kubernetes orchestration.",
+        "cv_evidence": "Worked with a Java squad of 4-5 developers to build modern cloud-based applications with a DevOps mentality.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate mentions DevOps and cloud-based applications, but does not explicitly mention Kubernetes.",
+        "source_file": "Java Developer.pdf"
+    },
+    {
+        "requirement": "Proven track record of designing and deploying microservices using Go (Golang).",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "Golang is not mentioned anywhere in the candidate's technical skills or experience sections.",
+        "source_file": "Java Developer.pdf"
+    },
+    {
+        "requirement": "Experience in developing system requirements and defining system architecture",
+        "cv_evidence": "Develop system requirements & defining system architecture",
+        "gold_label": "Match",
+        "rationale": "The candidate explicitly lists developing system requirements and defining system architecture under their skills section.",
+        "source_file": "Mechanical Engineer.pdf"
+    },
+    {
+        "requirement": "Knowledge of quality management methods such as FMEA and design reviews",
+        "cv_evidence": "The quality system and the methods of its group are implemented (risk analyzes, FMEA, design reviews, quality planning, DTE, treatment of Non-Conformities, ...)",
+        "gold_label": "Match",
+        "rationale": "The candidate's experience at Goyette, Reilly and Donnelly explicitly mentions FMEA and design reviews.",
+        "source_file": "Mechanical Engineer.pdf"
+    },
+    {
+        "requirement": "Proficiency in Python or C++ programming for hardware simulation",
+        "cv_evidence": "Analyze system performance through modeling and simulation",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate mentions modeling and simulation in their skills, but does not specify proficiency in Python or C++ programming.",
+        "source_file": "Mechanical Engineer.pdf"
+    },
+    {
+        "requirement": "Experience managing cross-functional teams in agile product development",
+        "cv_evidence": "Set and achieve goals with minimum supervision",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has experience working independently and collaborating with contractors, but there is no explicit mention of agile product management or leading cross-functional teams.",
+        "source_file": "Mechanical Engineer.pdf"
+    },
+    {
+        "requirement": "Master of Science in Mechanical Engineering or related field",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "The candidate's education section only lists a Bachelor's in Engineering from Rhode Island School of Design.",
+        "source_file": "Mechanical Engineer.pdf"
+    },
+    {
+        "requirement": "Experience developing SOAP and REST web services for complex business solutions.",
+        "cv_evidence": "Experience in SOAP and REST for developing Web Services for complex business solutions.",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly states professional experience in developing both SOAP and REST web services.",
+        "source_file": "Python Developer.pdf"
+    },
+    {
+        "requirement": "Minimum 5 years of experience using Java and J2EE technologies in enterprise environments.",
+        "cv_evidence": "6+ years of experience in developing web based, client/server, distributed architecture and component oriented architecture applications using Java/J2EE technologies.",
+        "gold_label": "Match",
+        "rationale": "The CV clearly specifies over 6 years of hands-on experience working with Java and J2EE technologies.",
+        "source_file": "Python Developer.pdf"
+    },
+    {
+        "requirement": "Experience with modern cloud platforms like AWS or Azure for application deployment.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of cloud platforms such as AWS or Azure anywhere in the candidate's CV.",
+        "source_file": "Python Developer.pdf"
+    },
+    {
+        "requirement": "Proficiency in Python programming for automation and backend services.",
+        "cv_evidence": "Java - JSP/J2EE, RMI, Java Beans, JDBC, Java JCE, Servlets, JMS, Web Services - Soap UI, WSDL, RESTful",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has strong backend programming experience in Java, but Python is not listed among their skills.",
+        "source_file": "Python Developer.pdf"
+    },
+    {
+        "requirement": "Hands-on experience with Docker and Kubernetes for containerized deployments.",
+        "cv_evidence": "Application development experience using multithreading, Serialization, Externalization, Collection, Generics.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has software development and architectural experience, but lacks specific mention of containerization tools like Docker and Kubernetes.",
+        "source_file": "Python Developer.pdf"
+    },
+    {
+        "requirement": "Minimum 2 years of experience developing applications using Spring Boot framework.",
+        "cv_evidence": "Developed microservices using Spring Boot.",
+        "gold_label": "Match",
+        "rationale": "The candidate has explicitly listed professional experience working with Spring Boot across multiple roles starting from 2020.",
+        "source_file": "React Developer.pdf"
+    },
+    {
+        "requirement": "Proficiency in writing unit tests using JUnit framework.",
+        "cv_evidence": "Experience in unit testing the applications using JUnit Framework and Mockito.",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly confirms experience with unit testing using JUnit in both summary and experience sections.",
+        "source_file": "React Developer.pdf"
+    },
+    {
+        "requirement": "Experience with cloud deployment platforms such as Amazon Web Services (AWS).",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "The candidate's CV mentions PCF and micro services, but there is no mention of AWS experience.",
+        "source_file": "React Developer.pdf"
+    },
+    {
+        "requirement": "Experience using enterprise search platforms like Elasticsearch for log analysis.",
+        "cv_evidence": "Used of Splunk to analysis of error and to understand the flow of the code.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has log analysis experience using Splunk, which is adjacent to Elasticsearch but a different tool.",
+        "source_file": "React Developer.pdf"
+    },
+    {
+        "requirement": "Professional experience leading software development teams as a Scrum Master.",
+        "cv_evidence": "Followed Agile methodology like Scrum. - Use of SCRUM for daily meetings, grooming sessions, sprint meetings, etc.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has participated in Scrum ceremonies as a team member, but there is no evidence of formally acting as a Scrum Master.",
+        "source_file": "React Developer.pdf"
+    },
+    {
+        "requirement": "Experience developing and managing full-scale sales operations from the ground up.",
+        "cv_evidence": "Build a full-scale sales operation from the ground up; duties include establishing database systems, recruitment of senior regional sales managers",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly states that the candidate built a full-scale sales operation from the ground up, directly matching the requirement.",
+        "source_file": "Sales.pdf"
+    },
+    {
+        "requirement": "Holds an M.B.A. in Marketing.",
+        "cv_evidence": "M.B.A. SPECIALIZATION IN MARKETING University of Windsor, Chicago, IL 2012",
+        "gold_label": "Match",
+        "rationale": "The education section clearly lists an MBA with a specialization in marketing obtained in 2012.",
+        "source_file": "Sales.pdf"
+    },
+    {
+        "requirement": "Experience using Salesforce CRM for pipeline tracking and reporting.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of Salesforce CRM anywhere on the resume.",
+        "source_file": "Sales.pdf"
+    },
+    {
+        "requirement": "Proficiency in advanced data analytics tools such as Tableau or Power BI.",
+        "cv_evidence": "Financial Forecasting, Business Professional Stats, Database Management",
+        "gold_label": "Partial Match",
+        "rationale": "While the candidate lists financial forecasting and database management, they do not specifically mention advanced data visualization tools like Tableau or Power BI.",
+        "source_file": "Sales.pdf"
+    },
+    {
+        "requirement": "At least 5 years of experience in senior sales management roles.",
+        "cv_evidence": "SALES MANAGER Babcock & Wilcox / Charlotte, NC / 2015 - Present",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has been a Sales Manager since 2015 (about 8 to 9 years), but the CV mentions recruitment of senior managers rather than explicitly defining their own title as a senior-level executive.",
+        "source_file": "Sales.pdf"
+    },
+    {
+        "requirement": "Experience in SAP S/4HANA implementation and Treasury module support.",
+        "cv_evidence": "Played a critical role in supporting the developing the architecture and implementation of SAP S/4HANA within the operating subsidiaries and the holding company Terumo in North and South America.",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly details her role in implementing and supporting SAP S/4HANA architecture and operations.",
+        "source_file": "SAP Developer.pdf"
+    },
+    {
+        "requirement": "Management of daily cash positioning and cash management activities.",
+        "cv_evidence": "Perform all daily cash management activities including cash positioning.",
+        "gold_label": "Match",
+        "rationale": "The candidate explicitly lists performing daily cash management and cash positioning as core responsibilities.",
+        "source_file": "SAP Developer.pdf"
+    },
+    {
+        "requirement": "Experience with SAP FI/CO module configuration and customizing.",
+        "cv_evidence": "Performed Fit/Gap assessment and finalize functional requirements.",
+        "gold_label": "Partial Match",
+        "rationale": "While she has functional experience with SAP S/4HANA, direct hands-on configuration and customizing of the FI/CO module is not explicitly stated.",
+        "source_file": "SAP Developer.pdf"
+    },
+    {
+        "requirement": "Proficiency in treasury management systems such as FIS Integrity or Quantum.",
+        "cv_evidence": "Implementation and maintenance of the Treasury Management System - Kyriba.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has strong Treasury Management System experience, but specifically with Kyriba rather than FIS Integrity or Quantum.",
+        "source_file": "SAP Developer.pdf"
+    },
+    {
+        "requirement": "Certified Treasury Professional (CTP) designation.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of the CTP certification anywhere in the candidate's CV.",
+        "source_file": "SAP Developer.pdf"
+    },
+    {
+        "requirement": "Minimum 5 years of professional experience with SQL development and database tuning.",
+        "cv_evidence": "SQL Developer with 8+ years of hands-on experience in developing database applications and administering database and information systems.",
+        "gold_label": "Match",
+        "rationale": "The candidate explicitly states over 8 years of SQL development experience, directly satisfying the minimum duration requirement.",
+        "source_file": "SQL Developer.pdf"
+    },
+    {
+        "requirement": "Experience using EXPLAIN PLAN and SQL*TRACE for performance tuning.",
+        "cv_evidence": "Performed SQL, PL/SQL, and application tuning using multiple tools, including EXPLAIN PLAN, SQL*TRACE, TKProf, and AutoTrace.",
+        "gold_label": "Match",
+        "rationale": "The candidate explicitly lists EXPLAIN PLAN and SQL*TRACE as tools utilized for performance tuning in their experience section.",
+        "source_file": "SQL Developer.pdf"
+    },
+    {
+        "requirement": "Proficiency in Python or R for advanced data science modeling and statistical analysis.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of Python, R, or general programming languages outside of SQL and PL/SQL anywhere on the CV.",
+        "source_file": "SQL Developer.pdf"
+    },
+    {
+        "requirement": "Experience with cloud database platforms such as Amazon Redshift or Snowflake.",
+        "cv_evidence": "Designed 4+ onsite databases while maintaining a group of 25 databases, subsequently reducing production costs...",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has extensive database design and management experience, but focuses entirely on on-premise solutions rather than cloud data warehouses like Redshift or Snowflake.",
+        "source_file": "SQL Developer.pdf"
+    },
+    {
+        "requirement": "Bachelor's degree in Software Engineering or a closely related technical field.",
+        "cv_evidence": "Bachelor of Science in Computer Science",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate holds a Bachelor's in Computer Science, which is closely related to Software Engineering but not an exact match for the requested title.",
+        "source_file": "SQL Developer.pdf"
+    },
+    {
+        "requirement": "Experience developing web applications using the PHP framework Laravel.",
+        "cv_evidence": "Implemented new features using PHP and Laravel, resulting in a 30% increase in user retention.",
+        "gold_label": "Match",
+        "rationale": "The CV explicitly mentions implementing features using PHP and Laravel.",
+        "source_file": "Web Developer.pdf"
+    },
+    {
+        "requirement": "Demonstrated collaboration skills in cross-functional teams.",
+        "cv_evidence": "Collaborated with cross-functional teams to develop and launch new features.",
+        "gold_label": "Match",
+        "rationale": "The strengths section explicitly lists collaboration with cross-functional teams.",
+        "source_file": "Web Developer.pdf"
+    },
+    {
+        "requirement": "Experience building modern user interfaces with Vue.js.",
+        "cv_evidence": "Worked collaboratively with the team to develop new features using JavaScript and React, resulting in a 25% increase in user engagement.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has frontend framework experience with React rather than Vue.js.",
+        "source_file": "Web Developer.pdf"
+    },
+    {
+        "requirement": "Proficiency in enterprise backend development using Java and Spring Boot.",
+        "cv_evidence": "Implemented new features using PHP and Laravel, resulting in a 30% increase in user retention.",
+        "gold_label": "Partial Match",
+        "rationale": "The candidate has backend web development experience, but uses PHP/Laravel rather than Java/Spring Boot.",
+        "source_file": "Web Developer.pdf"
+    },
+    {
+        "requirement": "Certified AWS Solutions Architect with cloud deployment experience.",
+        "cv_evidence": "None",
+        "gold_label": "No Match",
+        "rationale": "There is no mention of cloud platforms or AWS certifications anywhere in the CV.",
+        "source_file": "Web Developer.pdf"
+    }
+]

@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI CV Feedback Co-Pilot</title>
+<style>
+  :root {
+    --bg-base: #07070f;
+    --panel: rgba(255,255,255,0.035);
+    --panel-strong: rgba(255,255,255,0.065);
+    --border: rgba(255,255,255,0.09);
+    --border-strong: rgba(255,255,255,0.18);
+    --text: #f3f3fb;
+    --text-muted: #9797b8;
+    --text-dim: #6b6b8a;
+    --accent-1: #818cf8;
+    --accent-2: #c084fc;
+    --accent-3: #f472b6;
+    --gradient: linear-gradient(120deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3));
+    --match: #34d399;
+    --match-bg: rgba(52,211,153,0.14);
+    --partial: #fbbf24;
+    --partial-bg: rgba(251,191,36,0.14);
+    --nomatch: #fb7185;
+    --nomatch-bg: rgba(251,113,133,0.14);
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg-base);
+    color: var(--text);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Ambient animated gradient blobs behind everything */
+  .bg-blob {
+    position: fixed; border-radius: 50%; filter: blur(90px); opacity: 0.35;
+    pointer-events: none; z-index: 0; mix-blend-mode: screen;
+  }
+  .bg-blob.b1 { width: 46vw; height: 46vw; top: -14vw; left: -10vw; background: radial-gradient(circle, var(--accent-1), transparent 70%); animation: float1 22s ease-in-out infinite alternate; }
+  .bg-blob.b2 { width: 40vw; height: 40vw; bottom: -16vw; right: -8vw; background: radial-gradient(circle, var(--accent-3), transparent 70%); animation: float2 26s ease-in-out infinite alternate; }
+  .bg-blob.b3 { width: 32vw; height: 32vw; top: 30vh; right: 18vw; background: radial-gradient(circle, var(--accent-2), transparent 70%); opacity: 0.22; animation: float3 30s ease-in-out infinite alternate; }
+  @keyframes float1 { from { transform: translate(0,0) scale(1); } to { transform: translate(6vw, 8vh) scale(1.15); } }
+  @keyframes float2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-5vw, -6vh) scale(1.1); } }
+  @keyframes float3 { from { transform: translate(0,0) scale(1); } to { transform: translate(-4vw, 5vh) scale(0.9); } }
+
+  .app { display: flex; min-height: 100vh; position: relative; z-index: 1; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 240px; flex-shrink: 0;
+    background: rgba(8,8,18,0.6);
+    backdrop-filter: blur(18px);
+    border-right: 1px solid var(--border);
+    padding: 28px 20px;
+    display: flex; flex-direction: column;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 44px; }
+  .logo-badge {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: var(--gradient);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px;
+    box-shadow: 0 0 24px rgba(129,140,248,0.55), 0 0 0 1px rgba(255,255,255,0.15) inset;
+    animation: badgePulse 3.5s ease-in-out infinite;
+  }
+  @keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 24px rgba(129,140,248,0.55), 0 0 0 1px rgba(255,255,255,0.15) inset; }
+    50% { box-shadow: 0 0 36px rgba(244,114,182,0.6), 0 0 0 1px rgba(255,255,255,0.2) inset; }
+  }
+  .logo-text {
+    font-weight: 800; font-size: 15px; line-height: 1.25;
+    background: linear-gradient(120deg, #fff, #cfcfe8);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .steps { list-style: none; padding: 0; margin: 0; position: relative; }
+  .steps li {
+    display: flex; align-items: center; gap: 12px;
+    padding: 11px 12px; border-radius: 10px; margin-bottom: 6px;
+    font-size: 13.5px; color: var(--text-dim);
+    transition: background 0.25s, color 0.25s;
+  }
+  .steps li .dot {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; flex-shrink: 0; font-weight: 700;
+    transition: all 0.25s;
+  }
+  .steps li.active { background: rgba(129,140,248,0.15); color: #fff; }
+  .steps li.active .dot { background: var(--gradient); color: #fff; border-color: transparent; box-shadow: 0 0 14px rgba(129,140,248,0.6); }
+  .steps li.done .dot { background: var(--match); color: #08130f; border-color: transparent; }
+  .steps li.done { color: #d5d5ea; }
+
+  .sidebar-footer { margin-top: auto; font-size: 11px; color: var(--text-dim); line-height: 1.6; padding-top: 20px; }
+  .sidebar-footer .pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(52,211,153,0.12); color: var(--match);
+    border: 1px solid rgba(52,211,153,0.25); border-radius: 20px;
+    padding: 4px 10px; font-size: 10.5px; font-weight: 600; margin-bottom: 6px;
+  }
+
+  /* Main */
+  .main { flex: 1; padding: 40px 48px; max-width: 1180px; }
+  .hero { margin-bottom: 30px; }
+  h1.page-title {
+    font-size: 32px; font-weight: 800; margin: 0 0 8px 0; letter-spacing: -0.02em;
+    background: linear-gradient(120deg, #fff 30%, var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .page-sub { color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px; }
+  .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hero-badge {
+    font-size: 11.5px; font-weight: 600; color: var(--text-muted);
+    background: var(--panel); border: 1px solid var(--border); border-radius: 20px;
+    padding: 5px 12px; display: inline-flex; align-items: center; gap: 6px;
+  }
+
+  .card {
+    background: var(--panel);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 26px;
+    margin-bottom: 24px;
+    box-shadow: 0 20px 50px -20px rgba(0,0,0,0.6);
+    animation: cardIn 0.5s cubic-bezier(0.16,1,0.3,1) both;
+    transition: border-color 0.3s;
+  }
+  .card:hover { border-color: var(--border-strong); }
+  @keyframes cardIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+  .card h2 {
+    font-size: 15px; margin: 0 0 18px 0; display: flex; align-items: center; gap: 10px;
+    font-weight: 700; letter-spacing: 0.01em;
+  }
+  .card h2 .badge {
+    width: 26px; height: 26px; border-radius: 8px;
+    background: var(--gradient); color: #fff; font-size: 12px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    box-shadow: 0 0 16px rgba(129,140,248,0.4);
+  }
+
+  .hidden { display: none !important; }
+
+  /* Upload panel */
+  .upload-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .dropzone {
+    border: 2px dashed var(--border); border-radius: 16px; padding: 34px 16px;
+    text-align: center; cursor: pointer; transition: border-color 0.25s, background 0.25s, transform 0.15s;
+    background: rgba(255,255,255,0.015);
+  }
+  .dropzone:hover { border-color: var(--accent-1); background: rgba(129,140,248,0.06); transform: translateY(-2px); }
+  .dropzone.dragover { border-color: var(--accent-3); background: rgba(244,114,182,0.08); }
+  .dropzone .icon { font-size: 32px; margin-bottom: 10px; filter: drop-shadow(0 0 10px rgba(129,140,248,0.5)); }
+  .dropzone .hint { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+  .file-chip {
+    margin-top: 12px; font-size: 12.5px; color: var(--match); display: none;
+    background: var(--match-bg); border: 1px solid rgba(52,211,153,0.3); border-radius: 20px;
+    padding: 5px 12px; display: inline-block;
+  }
+  textarea#jd-text {
+    width: 100%; height: 100%; min-height: 168px; resize: vertical;
+    border: 1px solid var(--border); border-radius: 16px; padding: 14px;
+    font-family: inherit; font-size: 13px; background: rgba(255,255,255,0.02); color: var(--text);
+    transition: border-color 0.25s;
+  }
+  textarea#jd-text:focus { outline: none; border-color: var(--accent-1); }
+  textarea#jd-text::placeholder { color: var(--text-dim); }
+  .char-count { font-size: 11px; color: var(--text-dim); margin-top: 6px; text-align: right; }
+  .analyze-row { margin-top: 20px; display: flex; justify-content: flex-end; align-items: center; gap: 14px; }
+  .btn {
+    border: none; border-radius: 10px; padding: 12px 22px; font-size: 13.5px;
+    font-weight: 700; cursor: pointer; transition: transform 0.12s, box-shadow 0.25s, opacity 0.15s;
+    position: relative;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn-primary {
+    background: var(--gradient); color: #fff;
+    box-shadow: 0 8px 24px -6px rgba(192,132,252,0.55);
+  }
+  .btn-primary:hover:not(:disabled) { box-shadow: 0 10px 32px -6px rgba(244,114,182,0.7); transform: translateY(-1px); }
+  .btn-secondary { background: var(--panel-strong); color: var(--accent-1); border: 1px solid var(--border); }
+  .btn-secondary:hover:not(:disabled) { border-color: var(--accent-1); }
+  .btn-danger { background: rgba(251,113,133,0.12); color: var(--nomatch); border: 1px solid rgba(251,113,133,0.3); }
+  .btn-danger:hover:not(:disabled) { background: rgba(251,113,133,0.2); }
+  .error-msg {
+    color: var(--nomatch); font-size: 12.5px; margin-top: 12px; display: none;
+    background: var(--nomatch-bg); border: 1px solid rgba(251,113,133,0.3); border-radius: 10px; padding: 10px 14px;
+  }
+  .spinner-row { display: none; align-items: center; gap: 10px; font-size: 12.5px; color: var(--text-muted); }
+  .spinner {
+    width: 16px; height: 16px; border: 2.5px solid var(--border); border-top-color: var(--accent-2);
+    border-radius: 50%; animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Real (not simulated) step-by-step progress for the CV+JD parsing phase --
+     each step's state reflects an actual backend event (parsing_started /
+     cv_parsed / jd_parsed / upload_complete), not a timed animation. */
+  .progress-flow { display: none; flex-direction: column; gap: 11px; font-size: 12.5px; margin-bottom: 4px; }
+  .pf-step { display: flex; align-items: center; gap: 10px; color: var(--text-dim); transition: color 0.3s ease; }
+  .pf-step[data-state="active"] { color: var(--text); }
+  .pf-step[data-state="done"] { color: var(--text-muted); }
+  .pf-icon { width: 16px; height: 16px; flex: none; display: flex; align-items: center; justify-content: center; }
+  .pf-step[data-state="pending"] .pf-icon::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--border); display: block;
+  }
+  .pf-step[data-state="active"] .pf-icon {
+    border: 2px solid var(--border); border-top-color: var(--accent-2);
+    border-radius: 50%; animation: spin 0.8s linear infinite;
+  }
+  .pf-step[data-state="done"] .pf-icon::before { content: '\2713'; color: var(--match); font-weight: 700; font-size: 13px; }
+  .pf-detail { margin-left: auto; font-size: 11px; color: var(--text-dim); }
+
+  /* Analysis panel */
+  .analysis-grid { display: grid; grid-template-columns: 240px 1fr; gap: 28px; align-items: start; }
+  .score-ring-wrap { text-align: center; }
+  .score-ring-wrap svg { transform: rotate(-90deg); filter: drop-shadow(0 0 22px rgba(192,132,252,0.35)); }
+  .score-ring-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 12; }
+  .score-ring-fg {
+    fill: none; stroke: url(#ringGradient); stroke-width: 12; stroke-linecap: round;
+    transition: stroke-dashoffset 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .score-ring-label-wrap { position: relative; }
+  .score-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+  .score-text .val {
+    font-size: 34px; font-weight: 800;
+    background: linear-gradient(120deg, #fff, var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .score-text .lbl { font-size: 11px; color: var(--text-dim); margin-top: 2px; letter-spacing: 0.03em; text-transform: uppercase; }
+  .score-meta { display: flex; justify-content: center; margin-top: 18px; font-size: 12px; color: var(--text-dim); }
+  .score-meta span { display: block; font-weight: 700; font-size: 15px; color: var(--text); }
+
+  table.req-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  table.req-table th {
+    text-align: left; color: var(--text-dim); font-weight: 700;
+    padding: 8px 10px; border-bottom: 1px solid var(--border); font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  table.req-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: top; color: var(--text); }
+  table.req-table tbody tr { animation: rowIn 0.4s ease both; }
+  @keyframes rowIn { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
+
+  .evidence-toggle {
+    background: none; border: 1px solid var(--border); border-radius: 8px;
+    color: var(--text-dim); font-size: 13px; width: 28px; height: 28px; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .evidence-toggle:hover:not(:disabled) { border-color: var(--accent-1); color: var(--accent-1); }
+  .evidence-toggle:disabled { opacity: 0.25; cursor: not-allowed; }
+  .evidence-row td { padding: 4px 10px 16px; background: rgba(255,255,255,0.015); }
+  .evidence-card {
+    border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; font-size: 12px;
+  }
+  .evidence-card:last-child { margin-bottom: 0; }
+  .evidence-card .ev-head { display: flex; justify-content: space-between; align-items: center; color: var(--text-dim); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 5px; }
+  .evidence-card .ev-sim-wrap { display: inline-flex; align-items: center; gap: 6px; text-transform: none; letter-spacing: normal; }
+  .evidence-card .ev-sim-raw { color: var(--text-dim); font-size: 9.5px; font-variant-numeric: tabular-nums; }
+  .evidence-card .ev-text { color: var(--text-muted); line-height: 1.5; }
+  /* Plain-language relevance labels for the raw cosine similarity score --
+     this tool's students span every discipline (accountants, mechanical
+     engineers, HR generalists...), not just CS/ML backgrounds, so a bare
+     "cosine similarity: 0.735" communicates nothing to most of the actual
+     audience. The real number is still shown (small, secondary) for anyone
+     technical who wants it -- see PROJECT_CONTEXT.md's Glass Box rationale
+     for why it must stay real, never simulated. Band boundaries follow the
+     same style of similarity-band categorisation used in the reference
+     dissertation [Georgiou, 2023, Table 4], adapted for a 3-tier UI label. */
+  .sim-strong { background: var(--match-bg); color: var(--match); border-color: rgba(52,211,153,0.3); }
+  .sim-moderate { background: var(--partial-bg); color: var(--partial); border-color: rgba(251,191,36,0.3); }
+  .sim-weak { background: var(--nomatch-bg); color: var(--nomatch); border-color: rgba(251,113,133,0.3); }
+  .evidence-card .ev-text mark { background: rgba(129,140,248,0.3); color: var(--text); border-radius: 3px; padding: 0 2px; }
+
+  /* Chat-bubble variant of the Glass Box evidence toggle -- same underlying
+     mechanism (evidence-toggle class + evidence-card markup) as the
+     requirements table, restyled as a labeled pill instead of an icon-only
+     square since it sits under a bubble, not in a table cell. */
+  .chat-evidence-wrap { align-self: flex-start; max-width: 80%; }
+  .chat-evidence-toggle {
+    width: auto; height: auto; padding: 5px 11px; font-size: 11px; border-radius: 20px;
+    margin-top: 6px; display: inline-flex; align-items: center; gap: 5px;
+  }
+  .chat-evidence-panel { margin-top: 8px; }
+  .chat-evidence-panel.hidden { display: none; }
+  .label-pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px 11px; border-radius: 20px; font-size: 11px; font-weight: 700;
+    border: 1px solid transparent;
+  }
+  .label-match { background: var(--match-bg); color: var(--match); border-color: rgba(52,211,153,0.3); }
+  .label-partial-match { background: var(--partial-bg); color: var(--partial); border-color: rgba(251,191,36,0.3); }
+  .label-no-match { background: var(--nomatch-bg); color: var(--nomatch); border-color: rgba(251,113,133,0.3); }
+
+  .narrative { font-size: 13.5px; line-height: 1.65; color: var(--text-muted); margin-bottom: 20px; }
+
+  .ats-row {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    margin-bottom: 20px; padding: 14px 16px;
+    background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 14px;
+  }
+  .ats-chip { text-align: center; flex-shrink: 0; }
+  .ats-chip-val { font-size: 20px; font-weight: 800; color: var(--accent-1); }
+  .ats-chip-lbl { font-size: 10.5px; color: var(--text-dim); line-height: 1.3; margin-top: 2px; }
+  .ats-note { font-size: 11px; color: var(--text-dim); line-height: 1.5; flex: 1; min-width: 220px; }
+
+  /* Chat panel */
+  .chat-log {
+    max-height: 440px; overflow-y: auto; padding: 6px 4px; margin-bottom: 16px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .bubble {
+    max-width: 80%; padding: 12px 16px; border-radius: 16px; font-size: 13.5px; line-height: 1.55;
+    animation: bubbleIn 0.35s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  @keyframes bubbleIn { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  .bubble-agent {
+    background: var(--panel-strong); border: 1px solid var(--border);
+    align-self: flex-start; border-bottom-left-radius: 4px; color: var(--text);
+  }
+  .bubble-user {
+    background: var(--gradient); color: #fff;
+    align-self: flex-end; border-bottom-right-radius: 4px;
+    box-shadow: 0 6px 18px -6px rgba(192,132,252,0.5);
+  }
+  .bubble-typing { display: flex; align-items: center; gap: 4px; padding: 14px 16px; }
+  .bubble-typing .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--text-dim);
+    animation: typingBounce 1.1s ease-in-out infinite;
+  }
+  .bubble-typing .dot:nth-child(2) { animation-delay: 0.15s; }
+  .bubble-typing .dot:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+  .verdict-card {
+    align-self: flex-start; max-width: 88%;
+    background: linear-gradient(160deg, rgba(251,191,36,0.08), rgba(255,255,255,0.02));
+    border: 1px solid rgba(251,191,36,0.25);
+    border-left: 3px solid var(--partial);
+    border-radius: 14px; padding: 14px 16px; font-size: 12.5px;
+    animation: bubbleIn 0.35s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .verdict-card.v-match { border-left-color: var(--match); }
+  .verdict-card.v-no-match { border-left-color: var(--nomatch); }
+  .verdict-card .vlabel { font-weight: 700; margin-bottom: 6px; color: var(--text); font-size: 13px; }
+  .verdict-card .vreason { color: var(--text-muted); margin-bottom: 10px; }
+  .verdict-card .vsuggestion {
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 12px; color: var(--text);
+  }
+  .verdict-card .vsuggestion b { color: var(--accent-2); }
+  .gap-progress {
+    font-size: 11.5px; color: var(--accent-1); margin-bottom: 14px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  .chat-input-row { display: flex; gap: 10px; }
+  .chat-input-row input {
+    flex: 1; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font-size: 13.5px;
+    background: rgba(255,255,255,0.02); color: var(--text); transition: border-color 0.2s;
+  }
+  .chat-input-row input:focus { outline: none; border-color: var(--accent-1); }
+  .chat-input-row input::placeholder { color: var(--text-dim); }
+
+  /* Summary panel */
+  .summary-scores { display: flex; gap: 40px; margin-bottom: 22px; flex-wrap: wrap; }
+  .summary-scores .block { text-align: center; }
+  .summary-scores .block .num {
+    font-size: 30px; font-weight: 800;
+    background: linear-gradient(120deg, #fff, var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .summary-scores .block .lbl { font-size: 11.5px; color: var(--text-dim); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .delta-positive { background: linear-gradient(120deg, var(--match), #6ee7b7) !important; -webkit-background-clip: text !important; background-clip: text !important; }
+  .delta-negative { background: linear-gradient(120deg, var(--nomatch), #fda4af) !important; -webkit-background-clip: text !important; background-clip: text !important; }
+  .delta-zero { color: var(--text-dim) !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
+  .suggestion-item {
+    border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 12px;
+    background: var(--panel); transition: border-color 0.25s, transform 0.15s;
+    animation: cardIn 0.4s ease both;
+  }
+  .suggestion-item:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+  .suggestion-item .req { font-weight: 700; font-size: 13.5px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .suggestion-item .sug { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="bg-blob b1"></div>
+<div class="bg-blob b2"></div>
+<div class="bg-blob b3"></div>
+
+<svg width="0" height="0">
+  <defs>
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="55%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div class="app">
+  <div class="sidebar">
+    <div class="logo">
+      <div class="logo-badge">✨</div>
+      <div class="logo-text">AI CV Feedback<br>Co-Pilot</div>
+    </div>
+    <ul class="steps" id="steps">
+      <li class="active" data-step="upload"><span class="dot">1</span> Upload &amp; Job Description</li>
+      <li data-step="analysis"><span class="dot">2</span> Analysis</li>
+      <li data-step="chat"><span class="dot">3</span> Feedback Chat</li>
+      <li data-step="summary"><span class="dot">4</span> Summary</li>
+      <li data-step="revised"><span class="dot">5</span> Revised CV Check</li>
+    </ul>
+    <div class="sidebar-footer">
+      <div class="pill">● 100% Offline</div><br>
+      <div class="pill">● Local AI Only</div><br>
+      Your CV never leaves this machine.
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="hero">
+      <h1 class="page-title">Interactive CV-to-Job Feedback</h1>
+      <div class="page-sub">Upload your CV and a target job description — a local AI co-pilot digs past the surface to find what a static scan would miss.</div>
+      <div class="hero-badges">
+        <span class="hero-badge">🔒 Zero cloud calls</span>
+        <span class="hero-badge">⚡ Local qwen3:8b</span>
+        <span class="hero-badge">🎯 Grounded, not guessed</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Upload -->
+    <div class="card" id="panel-upload">
+      <h2><span class="badge">1</span> Upload CV &amp; Job Description</h2>
+      <div class="upload-grid">
+        <div>
+          <div class="dropzone" id="dropzone">
+            <div class="icon">📄</div>
+            <div>Drag &amp; drop your CV here, or click to choose a file</div>
+            <div class="hint">PDF only — digital text, not scanned images</div>
+            <div class="file-chip" id="file-chip"></div>
+          </div>
+          <input type="file" id="cv-file" accept="application/pdf" class="hidden">
+        </div>
+        <div>
+          <textarea id="jd-text" placeholder="Paste the job description text here..."></textarea>
+          <div class="char-count"><span id="char-count">0</span> characters</div>
+        </div>
+      </div>
+      <div class="error-msg" id="upload-error"></div>
+      <div class="progress-flow" id="upload-progress">
+        <div class="pf-step" id="pf-cv" data-state="pending">
+          <span class="pf-icon"></span><span>Parsing your CV</span><span class="pf-detail"></span>
+        </div>
+        <div class="pf-step" id="pf-jd" data-state="pending">
+          <span class="pf-icon"></span><span>Parsing the job description</span><span class="pf-detail"></span>
+        </div>
+        <div class="pf-step" id="pf-ats" data-state="pending">
+          <span class="pf-icon"></span><span>Computing ATS baseline scores</span><span class="pf-detail"></span>
+        </div>
+      </div>
+      <div class="analyze-row">
+        <button class="btn btn-primary" id="analyze-btn">✨ Analyze CV</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Analysis -->
+    <div class="card hidden" id="panel-analysis">
+      <h2><span class="badge">2</span> Analysis</h2>
+      <div class="ats-row">
+        <div class="ats-chip">
+          <div class="ats-chip-val" id="ats-keyword-val">—</div>
+          <div class="ats-chip-lbl">Naive keyword match<br>(ATS-style baseline)</div>
+        </div>
+        <div class="ats-chip">
+          <div class="ats-chip-val" id="ats-completeness-val">—</div>
+          <div class="ats-chip-lbl">CV structural<br>completeness</div>
+        </div>
+        <div class="ats-note">Shown for contrast — these are literal/structural checks, computed instantly with no AI involved. The semantic score below actually understands meaning, not just matching words.</div>
+      </div>
+      <div class="narrative" id="narrative"></div>
+      <div class="analysis-grid">
+        <div class="score-ring-wrap">
+          <div class="score-ring-label-wrap">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+              <circle class="score-ring-bg" cx="100" cy="100" r="86"></circle>
+              <circle class="score-ring-fg" id="score-ring-fg" cx="100" cy="100" r="86"></circle>
+            </svg>
+            <div class="score-text">
+              <div class="val" id="score-val">0%</div>
+              <div class="lbl">Current Score</div>
+            </div>
+          </div>
+          <div class="score-meta">
+            <div><span id="score-initial">0%</span>Baseline</div>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="req-table">
+            <thead><tr><th>Requirement</th><th>Status</th><th>Evidence / Reason</th><th></th></tr></thead>
+            <tbody id="req-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Chat -->
+    <div class="card hidden" id="panel-chat">
+      <h2><span class="badge">3</span> Feedback Chat</h2>
+      <div class="gap-progress" id="gap-progress"></div>
+      <div class="chat-log" id="chat-log"></div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Type your answer, or ask a question back...">
+        <button class="btn btn-primary" id="send-btn">Send</button>
+        <button class="btn btn-secondary" id="skip-btn">Skip</button>
+        <button class="btn btn-danger" id="stop-btn">Stop</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Summary -->
+    <div class="card hidden" id="panel-summary">
+      <h2><span class="badge">4</span> Suggested CV Changes</h2>
+      <div class="summary-scores">
+        <div class="block"><div class="num" id="sum-initial">0</div><div class="lbl">Baseline score</div></div>
+        <div class="block"><div class="num" id="sum-final">0</div><div class="lbl">Final score</div></div>
+        <div class="block"><div class="num" id="sum-delta">+0</div><div class="lbl">Score delta (ΔS)</div></div>
+      </div>
+      <div id="sum-note" class="page-sub" style="margin-bottom:16px;"></div>
+      <div id="sum-suggestions"></div>
+    </div>
+
+    <!-- Step 5: Revised CV Check -->
+    <div class="card hidden" id="panel-revised">
+      <h2><span class="badge">5</span> Revised CV Check</h2>
+      <div class="page-sub" style="margin-bottom:16px;">Applied the suggestions above to your real CV? Upload the edited file to see whether it actually holds up — an independent re-match against the same job description, not a simulation.</div>
+
+      <div id="revised-upload-row">
+        <div class="dropzone" id="revised-dropzone">
+          <div class="icon">📄</div>
+          <div>Drop your revised CV here, or click to choose a file</div>
+          <div class="hint">PDF only — digital text, not scanned images</div>
+          <div class="file-chip" id="revised-file-chip"></div>
+        </div>
+        <input type="file" id="revised-cv-file" accept="application/pdf" class="hidden">
+        <div class="error-msg" id="revised-error"></div>
+        <div class="analyze-row">
+          <div class="spinner-row" id="revised-spinner"><div class="spinner"></div> Re-matching your revised CV against the same job description...</div>
+          <button class="btn btn-primary" id="revised-check-btn">🔍 Check Revised CV</button>
+        </div>
+      </div>
+
+      <div class="hidden" id="revised-results">
+        <div class="summary-scores" style="margin-top:20px;">
+          <div class="block"><div class="num" id="revised-baseline">0</div><div class="lbl">Baseline score</div></div>
+          <div class="block"><div class="num" id="revised-simulated">0</div><div class="lbl">Co-Pilot simulated score</div></div>
+          <div class="block"><div class="num" id="revised-true">0</div><div class="lbl">True revised score</div></div>
+        </div>
+        <div id="revised-note" class="page-sub" style="margin: 10px 0 16px;"></div>
+        <div style="overflow-x:auto;">
+          <table class="req-table">
+            <thead><tr><th>Requirement</th><th>Status</th><th>Evidence / Reason</th><th></th></tr></thead>
+            <tbody id="revised-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const state = { sessionId: null, cvFile: null, sending: false };
+
+const $ = (id) => document.getElementById(id);
+const RING_CIRC = 2 * Math.PI * 86;
+
+// Plain-language relevance label for a raw cosine similarity score -- most
+// of this tool's students are not CS/ML background (accountants, mechanical
+// engineers, HR generalists...), so the primary visible signal has to be
+// readable without knowing what "cosine similarity" means. The exact number
+// is still shown alongside, smaller, for anyone who wants it.
+function similarityLabel(score) {
+  if (score >= 0.6) return { text: 'Strong match', cls: 'sim-strong' };
+  if (score >= 0.35) return { text: 'Moderate match', cls: 'sim-moderate' };
+  return { text: 'Weak match', cls: 'sim-weak' };
+}
+
+function setStep(name) {
+  document.querySelectorAll('#steps li').forEach(li => {
+    const order = ['upload', 'analysis', 'chat', 'summary', 'revised'];
+    const liIdx = order.indexOf(li.dataset.step);
+    const curIdx = order.indexOf(name);
+    li.classList.toggle('active', li.dataset.step === name);
+    li.classList.toggle('done', liIdx < curIdx);
+  });
+}
+
+function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+function highlightTerms(text, terms) {
+  if (!terms || !terms.length) return escapeHtml(text);
+  const pattern = new RegExp('\\b(' + terms.map(escapeRegex).join('|') + ')\\b', 'gi');
+  return escapeHtml(text).replace(pattern, '<mark>$1</mark>');
+}
+
+function setScoreRing(percent) {
+  const fg = $('score-ring-fg');
+  fg.style.strokeDasharray = `${RING_CIRC}`;
+  fg.style.strokeDashoffset = `${RING_CIRC * (1 - percent / 100)}`;
+  $('score-val').textContent = percent.toFixed(1) + '%';
+}
+
+// --- Dropzone / file picking ---
+const dropzone = $('dropzone');
+const cvFileInput = $('cv-file');
+dropzone.addEventListener('click', () => cvFileInput.click());
+dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('dragover'); });
+dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+dropzone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dropzone.classList.remove('dragover');
+  if (e.dataTransfer.files.length) setCvFile(e.dataTransfer.files[0]);
+});
+cvFileInput.addEventListener('change', () => {
+  if (cvFileInput.files.length) setCvFile(cvFileInput.files[0]);
+});
+function setCvFile(file) {
+  state.cvFile = file;
+  const chip = $('file-chip');
+  chip.textContent = `✓ ${file.name} (${(file.size / 1024).toFixed(0)} KB)`;
+  chip.style.display = 'inline-block';
+}
+
+$('jd-text').addEventListener('input', () => {
+  $('char-count').textContent = $('jd-text').value.length;
+});
+
+// --- Analyze ---
+function setPfState(id, state, detail) {
+  const el = $(id);
+  el.dataset.state = state;
+  el.querySelector('.pf-detail').textContent = detail || '';
+}
+
+function resetProgressFlow() {
+  ['pf-cv', 'pf-jd', 'pf-ats'].forEach(id => setPfState(id, 'pending', ''));
+  $('upload-progress').style.display = 'flex';
+}
+
+function hideProgressFlow() {
+  $('upload-progress').style.display = 'none';
+}
+
+// Used on error paths only -- on success the button must STAY disabled
+// through the matching phase that follows (startAnalysisStream), otherwise
+// a click there would kick off a second concurrent analysis.
+function abortProgressFlow() {
+  $('analyze-btn').disabled = false;
+  hideProgressFlow();
+}
+
+$('analyze-btn').addEventListener('click', async () => {
+  const jdText = $('jd-text').value.trim();
+  const errEl = $('upload-error');
+  errEl.style.display = 'none';
+
+  if (!state.cvFile) { errEl.textContent = 'Please choose a CV PDF first.'; errEl.style.display = 'block'; return; }
+  if (!jdText) { errEl.textContent = 'Please paste a job description.'; errEl.style.display = 'block'; return; }
+
+  $('analyze-btn').disabled = true;
+  resetProgressFlow();
+
+  const form = new FormData();
+  form.append('cv', state.cvFile);
+  form.append('jd_text', jdText);
+
+  try {
+    const res = await fetch('/api/upload/init', { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok) {
+      errEl.textContent = data.detail || 'Something went wrong.';
+      errEl.style.display = 'block';
+      abortProgressFlow();
+      return;
+    }
+    startUploadStream(data.pending_id);
+  } catch (e) {
+    errEl.textContent = 'Could not reach the server: ' + e.message;
+    errEl.style.display = 'block';
+    abortProgressFlow();
+  }
+});
+
+// Streams the CV+JD parsing phase step by step -- every step reflects a
+// real backend event (see web_session.py's run_upload_stream), not a timed
+// animation, so "loading from cache" vs "running local AI" is always true.
+function startUploadStream(pendingId) {
+  const source = new EventSource(`/api/upload/${pendingId}/stream`);
+  const errEl = $('upload-error');
+
+  source.addEventListener('parsing_started', (e) => {
+    const data = JSON.parse(e.data);
+    setPfState('pf-cv', 'active', data.cv_cached ? 'cache hit — instant' : 'running local AI…');
+    setPfState('pf-jd', 'active', data.jd_cached ? 'cache hit — instant' : 'running local AI…');
+  });
+  source.addEventListener('cv_parsed', () => setPfState('pf-cv', 'done', 'done'));
+  source.addEventListener('jd_parsed', () => setPfState('pf-jd', 'done', 'done'));
+  source.addEventListener('upload_failed', (e) => {
+    source.close();
+    errEl.textContent = JSON.parse(e.data).message || 'Something went wrong during parsing.';
+    errEl.style.display = 'block';
+    abortProgressFlow();
+  });
+  source.addEventListener('upload_complete', (e) => {
+    const data = JSON.parse(e.data);
+    source.close();
+    setPfState('pf-ats', 'done', 'done');
+    state.sessionId = data.session_id;
+    $('ats-keyword-val').textContent = data.ats_naive_keyword_score.toFixed(1) + '%';
+    $('ats-completeness-val').textContent = data.ats_completeness_score.toFixed(1) + '%';
+    // Button stays disabled -- hideProgressFlow (not abortProgressFlow) so the
+    // matching phase that starts next can't be double-triggered by a click.
+    hideProgressFlow();
+    startAnalysisStream(data.session_id);
+  });
+  source.onerror = () => {
+    source.close();
+    errEl.textContent = 'Lost connection to the server during parsing.';
+    errEl.style.display = 'block';
+    abortProgressFlow();
+  };
+}
+
+function labelClass(label) { return 'label-' + label.toLowerCase().replace(/ /g, '-'); }
+
+let _evidenceRowCounter = 0;
+
+// tbodyId lets this be reused for both the main analysis table and the
+// revised-CV re-check table. Each row gets a 4th "🔍" column that expands a
+// detail row showing the REAL retrieval evidence (code-computed cosine
+// similarity, not anything the LLM touched) with literal keyword overlap
+// highlighted — the "Glass Box" transparency panel. Only populated on a
+// fresh (cache-miss) match; disabled with a tooltip on cached results, since
+// getting real evidence there would mean re-running embeddings just for
+// display (see _stream_match's docstring in web_session.py).
+function appendRequirementRow(r, tbodyId = 'req-table-body') {
+  const rowId = `ev-${_evidenceRowCounter++}`;
+  const hasEvidence = r.retrieved_evidence && r.retrieved_evidence.length > 0;
+
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td>${escapeHtml(r.requirement)}</td>
+    <td><span class="label-pill ${labelClass(r.match_label)}">${r.match_label}</span></td>
+    <td>${escapeHtml(r.best_cv_evidence || r.reason)}</td>
+    <td><button class="evidence-toggle" data-target="${rowId}" ${hasEvidence ? '' : 'disabled title="Not available for a cached result"'}>🔍</button></td>`;
+  $(tbodyId).appendChild(tr);
+
+  if (hasEvidence) {
+    const detailTr = document.createElement('tr');
+    detailTr.className = 'evidence-row hidden';
+    detailTr.id = rowId;
+    detailTr.innerHTML = `<td colspan="4">${r.retrieved_evidence.map(ev => `
+      <div class="evidence-card">
+        <div class="ev-head"><span>${escapeHtml(ev.source)}</span><span class="ev-sim-wrap"><span class="label-pill ${similarityLabel(ev.similarity).cls}">${similarityLabel(ev.similarity).text}</span><span class="ev-sim-raw">${ev.similarity.toFixed(2)}</span></span></div>
+        <div class="ev-text">${highlightTerms(ev.text, ev.matched_terms)}</div>
+      </div>`).join('')}</td>`;
+    $(tbodyId).appendChild(detailTr);
+  }
+}
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.evidence-toggle');
+  if (!btn || btn.disabled) return;
+  const target = document.getElementById(btn.dataset.target);
+  if (target) target.classList.toggle('hidden');
+});
+
+// Streams the baseline match live (one requirement at a time) instead of
+// blocking on the whole ~1-3 min pass before showing anything — the score
+// ring and requirements table fill in progressively as each result arrives.
+function startAnalysisStream(sessionId) {
+  $('req-table-body').innerHTML = '';
+  $('narrative').textContent = 'Analyzing…';
+  $('score-initial').textContent = '—';
+  setScoreRing(0);
+  $('panel-analysis').classList.remove('hidden');
+  setStep('analysis');
+
+  const source = new EventSource(`/api/session/${sessionId}/analyze/stream`);
+
+  source.addEventListener('requirement_matched', (e) => {
+    const r = JSON.parse(e.data);
+    appendRequirementRow(r);
+    setScoreRing(r.running_score);
+    const totalLabel = r.total != null ? `/${r.total}` : '';
+    $('narrative').textContent = `Matching requirements… (${r.progress}${totalLabel})`;
+  });
+
+  source.addEventListener('analysis_complete', (e) => {
+    const data = JSON.parse(e.data);
+    $('score-initial').textContent = data.initial_score.toFixed(1) + '%';
+    setScoreRing(data.initial_score);
+    // NOT rebuilding the table here — the rows already built incrementally
+    // from requirement_matched events are authoritative, and rebuilding from
+    // data.requirements would throw away their retrieved_evidence (that
+    // event's payload doesn't carry it, only the live per-item ones do).
+    $('narrative').textContent = 'Generating feedback…';
+  });
+
+  source.addEventListener('narrative_ready', (e) => {
+    const data = JSON.parse(e.data);
+    $('narrative').textContent = data.narrative;
+  });
+
+  source.addEventListener('chat_ready', (e) => {
+    const event = JSON.parse(e.data);
+    source.close();
+    $('analyze-btn').disabled = false;
+    handleChatEvent(event);
+  });
+
+  source.onerror = () => {
+    source.close();
+    $('analyze-btn').disabled = false;
+    const errEl = $('upload-error');
+    errEl.textContent = 'Lost connection to the server during analysis.';
+    errEl.style.display = 'block';
+  };
+}
+
+// --- Chat ---
+function appendBubble(text, who) {
+  const div = document.createElement('div');
+  div.className = 'bubble ' + (who === 'user' ? 'bubble-user' : 'bubble-agent');
+  div.textContent = text;
+  $('chat-log').appendChild(div);
+  $('chat-log').scrollTop = $('chat-log').scrollHeight;
+}
+
+// Glass Box for chat: open Q&A and in-gap clarification answers are
+// grounded in real ChromaDB retrieval the same way the requirements table
+// is (clarifier.py now returns that evidence alongside the answer text) --
+// this surfaces it the same way, reusing the evidence-toggle/evidence-card
+// mechanism instead of inventing new UI. No toggle appears at all when
+// evidence is empty (a pure general-advice/off-topic answer has nothing to
+// show) rather than showing an empty or disabled control.
+function appendAgentBubbleWithEvidence(text, evidence) {
+  appendBubble(text, 'agent');
+  if (!evidence || !evidence.length) return;
+
+  const rowId = `chat-ev-${_evidenceRowCounter++}`;
+  const wrap = document.createElement('div');
+  wrap.className = 'chat-evidence-wrap';
+  wrap.innerHTML = `
+    <button class="evidence-toggle chat-evidence-toggle" data-target="${rowId}">🔍 View evidence (${evidence.length})</button>
+    <div class="chat-evidence-panel hidden" id="${rowId}">
+      ${evidence.map(ev => `
+        <div class="evidence-card">
+          <div class="ev-head"><span>${escapeHtml(ev.source)}</span><span class="ev-sim-wrap"><span class="label-pill ${similarityLabel(ev.similarity).cls}">${similarityLabel(ev.similarity).text}</span><span class="ev-sim-raw">${ev.similarity.toFixed(2)}</span></span></div>
+          <div class="ev-text">${highlightTerms(ev.text, ev.matched_terms)}</div>
+        </div>`).join('')}
+    </div>`;
+  $('chat-log').appendChild(wrap);
+  $('chat-log').scrollTop = $('chat-log').scrollHeight;
+}
+
+// Real, minimal feedback that the agent is working -- a chat turn can chain
+// 2+ LLM calls (intent classification + critic/clarifier), so a silent
+// multi-second wait with only the disabled input as feedback reads as
+// frozen. Unlike the upload-progress checklist, there's no meaningful
+// sub-step to report here, so this is just a standard "typing" affordance,
+// not real per-step progress.
+function showTypingIndicator() {
+  const div = document.createElement('div');
+  div.className = 'bubble bubble-agent bubble-typing';
+  div.id = 'typing-indicator';
+  div.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+  $('chat-log').appendChild(div);
+  $('chat-log').scrollTop = $('chat-log').scrollHeight;
+}
+
+function hideTypingIndicator() {
+  const el = $('typing-indicator');
+  if (el) el.remove();
+}
+
+function appendVerdictCard(v) {
+  const div = document.createElement('div');
+  div.className = 'verdict-card ' + labelClass(v.label).replace('label-', 'v-');
+  const icon = v.label === 'Match' ? '✓' : v.label === 'No Match' ? '✕' : '~';
+  div.innerHTML = `
+    <div class="vlabel">${icon} ${v.label} — ${escapeHtml(v.requirement)}</div>
+    <div class="vreason">${escapeHtml(v.reason)}</div>
+    <div class="vsuggestion"><b>Suggested CV edit:</b> ${escapeHtml(v.suggestion)}</div>`;
+  $('chat-log').appendChild(div);
+  $('chat-log').scrollTop = $('chat-log').scrollHeight;
+}
+
+function setChatInputEnabled(enabled) {
+  $('chat-input').disabled = !enabled;
+  $('send-btn').disabled = !enabled;
+  $('skip-btn').disabled = !enabled;
+  $('stop-btn').disabled = !enabled;
+}
+
+// Once the capped gap-interrogation phase is done, every message is a
+// student-initiated question, not a scored answer — Skip no longer means
+// anything (there's no current gap to skip), and Stop becomes "Finish" to
+// make the mode change legible instead of silently repurposing the same button.
+function setOpenQaMode(enabled) {
+  $('skip-btn').classList.toggle('hidden', enabled);
+  $('stop-btn').textContent = enabled ? 'Finish → Summary' : 'Stop';
+}
+
+function handleChatEvent(event) {
+  if (event.type === 'question') {
+    $('gap-progress').textContent = `Gap ${event.gap_number} of ${event.total_gaps_this_session}`;
+    appendBubble(event.question, 'agent');
+    setChatInputEnabled(true);
+    $('panel-chat').classList.remove('hidden');
+    setStep('chat');
+  } else if (event.type === 'open_qa') {
+    $('gap-progress').textContent = 'Open Q&A — ask anything about your CV, the job, or general advice';
+    appendBubble(event.message, 'agent');
+    setChatInputEnabled(true);
+    setOpenQaMode(true);
+    $('panel-chat').classList.remove('hidden');
+    setStep('chat');
+  } else if (event.type === 'general_answer') {
+    appendAgentBubbleWithEvidence(event.answer, event.evidence);
+    setChatInputEnabled(true);
+  } else if (event.type === 'clarification') {
+    appendAgentBubbleWithEvidence(event.clarification, event.evidence);
+    setChatInputEnabled(true);
+  } else if (event.type === 'verdict') {
+    appendVerdictCard(event);
+    setScoreRing(event.current_score);
+    handleChatEvent(event.next);
+  } else if (event.type === 'done') {
+    setChatInputEnabled(false);
+    showSummary(event.session_summary);
+  }
+}
+
+async function sendMessage(text) {
+  // Belt-and-suspenders against double-submission (e.g. Enter + a click
+  // landing in the same instant): this client-side flag is the first line
+  // of defense, disabling the input is the second, and the server's
+  // per-session lock (409 on a genuine race) is the one that actually
+  // guarantees correctness — see web_session.py's _session_locks.
+  if (!state.sessionId || state.sending) return;
+  state.sending = true;
+  appendBubble(text, 'user');
+  setChatInputEnabled(false);
+  showTypingIndicator();
+  try {
+    const res = await fetch(`/api/session/${state.sessionId}/message`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text }),
+    });
+    if (res.status === 409) {
+      // A duplicate of a message already being processed — the real
+      // request's response will land and handle everything; say nothing.
+      return;
+    }
+    const event = await res.json();
+    hideTypingIndicator();
+    if (!res.ok) {
+      appendBubble('Error: ' + (event.detail || 'something went wrong'), 'agent');
+      setChatInputEnabled(true);
+      return;
+    }
+    handleChatEvent(event);
+  } catch (e) {
+    hideTypingIndicator();
+    appendBubble('Could not reach the server: ' + e.message, 'agent');
+    setChatInputEnabled(true);
+  } finally {
+    state.sending = false;
+    hideTypingIndicator();
+  }
+}
+
+$('send-btn').addEventListener('click', () => {
+  const input = $('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  sendMessage(text);
+});
+$('chat-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') $('send-btn').click();
+});
+$('skip-btn').addEventListener('click', () => sendMessage('skip'));
+$('stop-btn').addEventListener('click', () => sendMessage('stop'));
+
+// --- Summary ---
+function showSummary(summary) {
+  $('sum-initial').textContent = summary.initial_score.toFixed(1);
+  $('sum-final').textContent = summary.final_score.toFixed(1);
+  const deltaEl = $('sum-delta');
+  const sign = summary.score_delta > 0 ? '+' : '';
+  deltaEl.textContent = sign + summary.score_delta.toFixed(1);
+  deltaEl.className = 'num ' + (summary.score_delta > 0 ? 'delta-positive' : summary.score_delta < 0 ? 'delta-negative' : 'delta-zero');
+
+  const note = $('sum-note');
+  if (summary.stopped_early) {
+    note.textContent = 'Session ended early by request.';
+  } else if (summary.suggestions.length === 0) {
+    note.textContent = 'No gaps were found on the baseline pass — every requirement already matched.';
+  } else {
+    note.textContent = `Addressed ${summary.gaps_addressed_this_session} of ${summary.total_gaps_found} total gaps this session.`;
+  }
+
+  const container = $('sum-suggestions');
+  container.innerHTML = '';
+  summary.suggestions.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'suggestion-item';
+    div.style.animationDelay = `${i * 0.06}s`;
+    div.innerHTML = `
+      <div class="req">${i + 1}. <span class="label-pill ${labelClass(s.label)}">${s.label}</span> ${escapeHtml(s.requirement)}</div>
+      <div class="sug">${escapeHtml(s.suggestion)}</div>`;
+    container.appendChild(div);
+  });
+
+  $('panel-summary').classList.remove('hidden');
+  $('panel-revised').classList.remove('hidden');
+  setStep('summary');
+}
+
+// --- Step 5: Revised CV Check ---
+const revisedState = { file: null };
+
+const revisedDropzone = $('revised-dropzone');
+const revisedFileInput = $('revised-cv-file');
+revisedDropzone.addEventListener('click', () => revisedFileInput.click());
+revisedDropzone.addEventListener('dragover', (e) => { e.preventDefault(); revisedDropzone.classList.add('dragover'); });
+revisedDropzone.addEventListener('dragleave', () => revisedDropzone.classList.remove('dragover'));
+revisedDropzone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  revisedDropzone.classList.remove('dragover');
+  if (e.dataTransfer.files.length) setRevisedFile(e.dataTransfer.files[0]);
+});
+revisedFileInput.addEventListener('change', () => {
+  if (revisedFileInput.files.length) setRevisedFile(revisedFileInput.files[0]);
+});
+function setRevisedFile(file) {
+  revisedState.file = file;
+  const chip = $('revised-file-chip');
+  chip.textContent = `✓ ${file.name} (${(file.size / 1024).toFixed(0)} KB)`;
+  chip.style.display = 'inline-block';
+}
+
+$('revised-check-btn').addEventListener('click', async () => {
+  const errEl = $('revised-error');
+  errEl.style.display = 'none';
+
+  if (!state.sessionId) { errEl.textContent = 'No active session.'; errEl.style.display = 'block'; return; }
+  if (!revisedState.file) { errEl.textContent = 'Please choose your revised CV PDF first.'; errEl.style.display = 'block'; return; }
+
+  $('revised-check-btn').disabled = true;
+  $('revised-spinner').style.display = 'flex';
+  setStep('revised');
+
+  const form = new FormData();
+  form.append('cv', revisedState.file);
+
+  try {
+    const res = await fetch(`/api/session/${state.sessionId}/revised-cv`, { method: 'POST', body: form });
+    const data = await res.json();
+    if (!res.ok) {
+      errEl.textContent = data.detail || 'Something went wrong.';
+      errEl.style.display = 'block';
+      $('revised-check-btn').disabled = false;
+      $('revised-spinner').style.display = 'none';
+      return;
+    }
+    startRevisedStream();
+  } catch (e) {
+    errEl.textContent = 'Could not reach the server: ' + e.message;
+    errEl.style.display = 'block';
+    $('revised-check-btn').disabled = false;
+    $('revised-spinner').style.display = 'none';
+  }
+});
+
+function startRevisedStream() {
+  $('revised-table-body').innerHTML = '';
+  $('revised-results').classList.remove('hidden');
+  $('revised-note').textContent = 'Matching…';
+
+  const source = new EventSource(`/api/session/${state.sessionId}/revised-cv/stream`);
+
+  source.addEventListener('requirement_matched', (e) => {
+    const r = JSON.parse(e.data);
+    appendRequirementRow(r, 'revised-table-body');
+    const totalLabel = r.total != null ? `/${r.total}` : '';
+    $('revised-note').textContent = `Matching requirements… (${r.progress}${totalLabel})`;
+  });
+
+  source.addEventListener('revised_complete', (e) => {
+    const data = JSON.parse(e.data);
+    source.close();
+    $('revised-check-btn').disabled = false;
+    $('revised-spinner').style.display = 'none';
+
+    $('revised-baseline').textContent = data.baseline_score.toFixed(1);
+    $('revised-simulated').textContent = data.simulated_score.toFixed(1);
+    $('revised-true').textContent = data.true_revised_score.toFixed(1);
+
+    if (data.true_revised_score >= data.simulated_score) {
+      $('revised-note').textContent = `Your real edits held up — the true revised score (${data.true_revised_score.toFixed(1)}) matches or beats what the chat session implied (${data.simulated_score.toFixed(1)}).`;
+    } else {
+      $('revised-note').textContent = `The true revised score (${data.true_revised_score.toFixed(1)}) came in below the chat-simulated score (${data.simulated_score.toFixed(1)}) — some suggested edits may not have made it into the actual document yet.`;
+    }
+  });
+
+  source.onerror = () => {
+    source.close();
+    $('revised-check-btn').disabled = false;
+    $('revised-spinner').style.display = 'none';
+    const errEl = $('revised-error');
+    errEl.textContent = 'Lost connection to the server during matching.';
+    errEl.style.display = 'block';
+  };
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str == null ? '' : str;
+  return div.innerHTML;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+COMPANY BLURB  
+NexaCore Solutions is a fast-growing tech company specializing in building scalable cloud-based platforms for enterprise clients across multiple industries. We combine innovation with real-world impact, and we're looking for talented developers to help shape the future of digital infrastructure.  
+
+RESPONSIBILITIES  
+- Design and implement robust backend systems that support high-traffic enterprise applications  
+- Collaborate with cross-functional teams to define and deliver scalable, secure, and efficient APIs  
+- Write, test, and maintain server-side logic to ensure seamless integration with frontend and database systems  
+- Monitor application performance and optimize backend processes for reliability and speed  
+- Participate in code reviews and ensure adherence to best practices and architectural standards  
+- Document system architecture and maintain technical specifications for future development and onboarding
+
+Qualification
+
+Required
+
+- Python
+- Django framework
+- REST API design
+- PostgreSQL
+- Git
+- Containerization experience with Docker
+- Experience deploying applications on AWS, Azure, or GCP
+- Familiarity with Kubernetes orchestration
+
+Preferred
+
+- Experience with CI/CD pipelines
+- Message queue experience (RabbitMQ or Kafka)

@@ -1,0 +1,98 @@
+[
+  {
+    "name": "ai_ml_engineer",
+    "target_requirement": "Experience with vector databases and semantic search (e.g. Pinecone, Chroma, FAISS)",
+    "baseline_label": "No Match",
+    "updated_label": "Match",
+    "is_grounded": true,
+    "critic_reason": "The student clearly specified the use of ChromaDB as the vector database and described the process of using cosine similarity for semantic search to retrieve similar FAQ entries.",
+    "question": "You mentioned reducing irrelevant chatbot answers by retrieving the most similar past FAQ entries \u2014 did you use any vector database or semantic search tool to accomplish this, and if so, which one?",
+    "before_score": 83.3,
+    "after_score": 100.0,
+    "delta": 16.7
+  },
+  {
+    "name": "backend_developer",
+    "target_requirement": "Containerization experience with Docker",
+    "baseline_label": "No Match",
+    "updated_label": "Match",
+    "is_grounded": true,
+    "critic_reason": "The student clearly confirmed Docker use and provided specific steps (writing Dockerfile, moving from VM to containers, setting up docker-compose) and benefits (reduced environment setup time).",
+    "question": "You mentioned modernizing how the payments service was packaged and shipped \u2014 did that involve using Docker for containerization, and if so, what specific steps or benefits did you achieve with it?",
+    "before_score": 83.3,
+    "after_score": 100.0,
+    "delta": 16.7
+  },
+  {
+    "name": "data_scientist",
+    "target_requirement": "Hands-on deep learning experience with PyTorch or TensorFlow",
+    "baseline_label": "Partial Match",
+    "updated_label": "Match",
+    "is_grounded": true,
+    "critic_reason": "The student clearly specified the use of PyTorch for building a feedforward network, including specific tasks like using DataLoader, training on a GPU, and comparing accuracy against a baseline. This provides concrete, checkable details that meet the requirement.",
+    "question": "You mentioned exploring a neural approach to the churn-prediction problem \u2014 did you use any specific deep learning framework like PyTorch or TensorFlow for that work, and if so, what was your role in implementing the model?",
+    "before_score": 91.7,
+    "after_score": 100.0,
+    "delta": 8.3
+  },
+  {
+    "name": "devops_engineer",
+    "target_requirement": "Kubernetes cluster management",
+    "baseline_label": "No Match",
+    "updated_label": "Match",
+    "is_grounded": true,
+    "critic_reason": "The student clearly specified they worked with Kubernetes, described specific cluster management tasks (Deployment and Service manifests, kubectl rollouts, horizontal pod autoscaler setup), and connected it to the requirement.",
+    "question": "You mentioned helping migrate the team's Docker Compose based services to a more scalable, self-healing orchestration setup \u2014 did that involve working with Kubernetes specifically, and if so, what aspects of cluster management did you handle?",
+    "before_score": 83.3,
+    "after_score": 100.0,
+    "delta": 16.7
+  },
+  {
+    "name": "react_frontend_developer",
+    "target_requirement": "Automated testing with Jest or Cypress",
+    "baseline_label": "Partial Match",
+    "updated_label": "Match",
+    "is_grounded": true,
+    "critic_reason": "The student clearly named Jest and Cypress as the specific tools used and described their implementation in the checkout flow, including integration with CI.",
+    "question": "You mentioned adding an automated safety net to the checkout flow \u2014 did that involve using a specific testing framework like Jest or Cypress, and if so, can you describe how you implemented it?",
+    "before_score": 90.0,
+    "after_score": 100.0,
+    "delta": 10.0
+  },
+  {
+    "name": "financial_accountant",
+    "target_requirement": "Hands-on experience with SAP Financial Accounting (FI) modules or Oracle Financials",
+    "baseline_label": "No Match",
+    "updated_label": "Match",
+    "is_grounded": true,
+    "critic_reason": "The student clearly specified working with SAP FI modules, including General Ledger and Accounts Payable, posting journal entries, and running reconciliation reports directly in SAP.",
+    "question": "You mentioned supporting the finance team's transition to a new enterprise accounting platform \u2014 did that involve working with SAP Financial Accounting (FI) modules or Oracle Financials specifically, and if so, what were your responsibilities in that process?",
+    "before_score": 80.0,
+    "after_score": 100.0,
+    "delta": 20.0
+  },
+  {
+    "name": "mechanical_engineer",
+    "target_requirement": "FEA/simulation experience with ANSYS or similar",
+    "baseline_label": "No Match",
+    "updated_label": "Match",
+    "is_grounded": true,
+    "critic_reason": "The student clearly stated they used ANSYS for a static structural simulation, checked von Mises stress against yield strength, and described the outcome of the analysis, which directly aligns with the requirement.",
+    "question": "You mentioned validating a bracket redesign under expected load \u2014 did that involve using any simulation tools like ANSYS or similar software to analyze stress or deformation?",
+    "before_score": 80.0,
+    "after_score": 100.0,
+    "delta": 20.0
+  },
+  {
+    "name": "hr_generalist",
+    "target_requirement": "Compensation and benefits administration experience",
+    "baseline_label": "No Match",
+    "updated_label": "Match",
+    "is_grounded": true,
+    "critic_reason": "The student provided specific details about managing compensation bands in Workday and processing benefit elections for the entire company, which directly relates to compensation and benefits administration.",
+    "question": "You mentioned maintaining employee records in Workday \u2014 did that involve managing compensation data or benefits administration for employees?",
+    "before_score": 75.0,
+    "after_score": 100.0,
+    "delta": 25.0
+  }
+]

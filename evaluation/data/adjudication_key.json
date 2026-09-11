@@ -1,0 +1,275 @@
+{
+  "case_01": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Match",
+    "system_label": "Partial Match",
+    "system_reason": "The evidence shows review and correction of discrepancies in monthly trail balances, which is related to account reconciliation but does not explicitly mention month-end close processes."
+  },
+  "case_02": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The CV evidence does not mention any experience with managing staff or leading a team of accountants, focusing instead on customer service and technical support roles."
+  },
+  "case_03": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "Match",
+    "system_reason": "The CV evidence directly mentions experience with chargeback procedures and Visa & MasterCard regulations, which aligns precisely with the job requirement."
+  },
+  "case_04": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The CV evidence is related to CRM reporting and analysis, but does not mention financial budget management or forecasting for departmental operations."
+  },
+  "case_05": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The CV evidence mentions CPR certification but does not explicitly state formal EMT certification, which is required."
+  },
+  "case_06": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The evidence mentions customer retention and resolution practices but does not mention Salesforce CRM or any specific CRM tools, thus it does not entail the requirement."
+  },
+  "case_07": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Match",
+    "system_label": "Partial Match",
+    "system_reason": "The candidate's role as a Civil & Structural Engineer at McCarthy Building Companies suggests involvement in infrastructure projects, but it does not explicitly confirm project management experience."
+  },
+  "case_08": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The CV evidence mentions engineering and architectural drawing interpretation but does not explicitly state proficiency in AutoCAD or BIM software for structural drafting."
+  },
+  "case_09": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The evidence mentions environmental health and compliance with government authorities but does not mention LEED certification or green building projects specifically."
+  },
+  "case_10": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The evidence mentions teaching ELA (English Language Arts) at the 5th grade level, which is not equivalent to high school English literature or AP courses."
+  },
+  "case_11": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The candidate's evidence does not mention Canvas LMS, which is the specific system required."
+  },
+  "case_12": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Match",
+    "system_label": "No Match",
+    "system_reason": "The CV evidence mentions Linux, Automation, and DevOps experience but does not explicitly mention AWS or infrastructure management, which are required by the job."
+  },
+  "case_13": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "Match",
+    "system_reason": "The candidate explicitly demonstrates Docker proficiency by installing Docker, creating Dockerfiles, and integrating Docker with Jenkins for Continuous Delivery, which directly aligns with the job requirement."
+  },
+  "case_14": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Match",
+    "system_label": "Partial Match",
+    "system_reason": "The candidate has experience with Ansible and Terraform, though the evidence focuses more on automation and deployment rather than explicit IaC implementation."
+  },
+  "case_15": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "Match",
+    "system_reason": "The candidate explicitly mentions operating an offset printing press, which aligns directly with the job requirement."
+  },
+  "case_16": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "Match",
+    "system_reason": "The CV evidence directly mentions migrating from SOA to RESTful services, which aligns with the job requirement of migrating legacy SOAP web services to modern RESTful APIs."
+  },
+  "case_17": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "Match",
+    "system_reason": "The CV evidence explicitly mentions both MS SQL Server and Oracle, which are enterprise database systems directly referenced in the job requirement."
+  },
+  "case_18": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Match",
+    "system_label": "Partial Match",
+    "system_reason": "The evidence mentions involvement in designing specialized PCBs but does not specify the use of ORCAD or PADS."
+  },
+  "case_19": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The candidate's evidence does not mention MATLAB or signal processing simulations."
+  },
+  "case_20": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The candidate's evidence mentions Eagle, PADS, and ORCAD, but not Altium Designer, which is explicitly required."
+  },
+  "case_21": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Match",
+    "system_label": "Partial Match",
+    "system_reason": "The candidate has experience with SQL query analysis and performance tuning, which aligns with the job requirement, but there is no explicit mention of Oracle database development."
+  },
+  "case_22": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The candidate's evidence mentions Informatica, not Talend Data Integration, so it does not directly entail the job requirement."
+  },
+  "case_23": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The CV evidence does not mention any experience with Snowflake or cloud data warehouses."
+  },
+  "case_24": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The evidence mentions HR operations but does not specify international scope or global payroll management."
+  },
+  "case_25": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The evidence mentions JavaScript but does not specify proficiency in React or Angular frameworks."
+  },
+  "case_26": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The candidate's evidence mentions understanding of agile practices but does not include any certification such as CSM or formal agile project management certification."
+  },
+  "case_27": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The candidate's experience is in Angular, not Vue.js, and there is no mention of single-page applications."
+  },
+  "case_28": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The evidence mentions cloud-based applications and DevOps, but there is no mention of Kubernetes orchestration or managing cloud infrastructure."
+  },
+  "case_29": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The evidence mentions system performance analysis and modeling/simulation but does not specify Python or C++ proficiency or hardware simulation."
+  },
+  "case_30": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The evidence does not mention managing cross-functional teams or agile product development."
+  },
+  "case_31": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The candidate's evidence is focused on Java technologies and does not mention Python programming, automation, or backend services."
+  },
+  "case_32": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The CV evidence mentions application development skills but does not include any experience with Docker or Kubernetes."
+  },
+  "case_33": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Match",
+    "system_label": "Partial Match",
+    "system_reason": "The candidate has experience with Spring Boot, but the evidence does not specify the duration of the experience, which is required to meet the 2-year threshold."
+  },
+  "case_34": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The candidate's experience is with Splunk, not Elasticsearch, and the evidence does not mention log analysis using enterprise search platforms."
+  },
+  "case_35": {
+    "gold_side": "A",
+    "system_side": "B",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The evidence does not mention any specific data analytics tools like Tableau or Power BI."
+  },
+  "case_36": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The evidence mentions onsite databases but does not specify cloud database platforms like Amazon Redshift or Snowflake."
+  },
+  "case_37": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "Match",
+    "system_reason": "The candidate holds a Bachelor of Science in Computer Science, which is a closely related technical field to Software Engineering."
+  },
+  "case_38": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The candidate's evidence mentions React, not Vue.js, and does not explicitly state they built modern user interfaces with Vue.js."
+  },
+  "case_39": {
+    "gold_side": "B",
+    "system_side": "A",
+    "gold_label": "Partial Match",
+    "system_label": "No Match",
+    "system_reason": "The candidate's evidence involves PHP and Laravel, which are not related to Java or Spring Boot."
+  }
+}

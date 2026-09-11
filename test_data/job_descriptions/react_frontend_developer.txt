@@ -1,0 +1,27 @@
+COMPANY BLURB  
+NEXUS WAVE is a fast-growing digital product studio specializing in building intuitive, high-performance web applications for enterprise clients across multiple industries. We combine cutting-edge design with robust engineering to deliver seamless user experiences, and we’re looking for passionate developers to help shape the future of our platform.  
+
+RESPONSIBILITIES  
+- Design and implement responsive, user-centric frontend interfaces using modern web technologies  
+- Collaborate with product and design teams to translate wireframes and mockups into functional code  
+- Ensure cross-browser compatibility and optimal performance across all devices  
+- Write clean, maintainable, and scalable code that adheres to best practices  
+- Conduct code reviews and mentor junior developers to maintain high code quality  
+- Stay updated with emerging frontend trends and integrate them into our development workflow
+
+Qualification
+
+Required
+
+- JavaScript
+- React
+- HTML/CSS
+- REST API integration
+- TypeScript
+- Automated testing with Jest or Cypress
+- Experience with Next.js or server-side rendering
+
+Preferred
+
+- State management libraries (Redux or Zustand)
+- Accessibility (WCAG) best practices

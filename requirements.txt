@@ -1,0 +1,10 @@
+pymupdf
+pydantic
+chromadb
+ollama
+google-genai
+scikit-learn
+fastapi
+uvicorn
+python-multipart
+fpdf2

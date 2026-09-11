@@ -1,0 +1,27 @@
+COMPANY BLURB  
+NexaForge is a leading innovator in sustainable mechanical design solutions, specializing in creating energy-efficient industrial equipment for smart manufacturing. We combine cutting-edge engineering with environmental responsibility to deliver products that redefine industry standards. Why join us? Because you’ll be part of a team that shapes the future of sustainable technology.  
+
+RESPONSIBILITIES  
+- Design and develop mechanical systems that meet performance, safety, and cost efficiency standards  
+- Collaborate with cross-functional teams to translate technical requirements into functional prototypes  
+- Conduct detailed analysis and simulations to optimize product design and functionality  
+- Prepare and review technical documentation including schematics, drawings, and assembly instructions  
+- Participate in design reviews and contribute to iterative improvements based on feedback and testing results  
+- Ensure compliance with industry regulations and quality assurance protocols throughout the development lifecycle
+
+Qualification
+
+Required
+
+- SolidWorks
+- AutoCAD
+- tolerance stack-up analysis
+- manufacturing drawings
+- FEA/simulation experience with ANSYS or similar
+- Six Sigma or Lean Manufacturing certification
+- Experience with DFM/DFA for high-volume production
+
+Preferred
+
+- GD&T certification
+- Experience with PLM systems

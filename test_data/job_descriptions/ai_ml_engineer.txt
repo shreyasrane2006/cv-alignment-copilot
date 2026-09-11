@@ -1,0 +1,28 @@
+COMPANY BLURB  
+NexaCore Innovations is a leading AI and machine learning development firm specializing in creating intelligent systems for healthcare, finance, and smart infrastructure. We combine cutting-edge research with real-world impact, offering a dynamic environment for engineers who want to shape the future of technology.  
+
+RESPONSIBILITIES  
+- Design and implement machine learning models to solve complex business problems  
+- Collaborate with cross-functional teams to define data requirements and model architecture  
+- Conduct experiments and validate model performance using real-world datasets  
+- Optimize algorithms for scalability, efficiency, and accuracy  
+- Document processes and results for internal and external stakeholders  
+- Stay updated on emerging AI trends and integrate new techniques into ongoing projects
+
+Qualification
+
+Required
+
+- Python
+- OpenAI API integration
+- Git version control
+- REST APIs
+- Prompt engineering fundamentals
+- Experience with LangChain, CrewAI, or AutoGPT agent frameworks
+- Experience with vector databases and semantic search (e.g. Pinecone, Chroma, FAISS)
+- Practical experience building Retrieval-Augmented Generation (RAG) pipelines
+
+Preferred
+
+- Familiarity with asynchronous Python programming
+- Experience fine-tuning open-source LLMs

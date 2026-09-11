@@ -1,0 +1,247 @@
+{
+  "total_cases": 24,
+  "fooled_count": 24,
+  "fooled_rate_pct": 100.0,
+  "cases": [
+    {
+      "scenario": "ai_ml_engineer",
+      "requirement": "Experience with LangChain, CrewAI, or AutoGPT agent frameworks",
+      "question": "You mentioned you built a chatbot using OpenAI's API \u2014 did that involve using any specific agent frameworks like LangChain, CrewAI, or AutoGPT, and if so, how did you integrate them into the chatbot's architecture?",
+      "fabricated_answer": "Yes, I led the development of a customer support chatbot for a fintech startup using LangChain as the core agent framework, integrating it with OpenAI's API for natural language understanding. We designed a modular pipeline where LangChain's agents handled task decomposition, and we used CrewAI to orchestrate multi-step workflows for complex user queries, achieving a 40% reduction in support resolution time. The system was deployed on AWS Lambda with Docker containers for scalable, real-time interactions.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student clearly named LangChain and CrewAI as part of the chatbot development, described their integration into the architecture, and provided a measurable outcome (40% reduction in support resolution time).",
+      "fooled": true
+    },
+    {
+      "scenario": "ai_ml_engineer",
+      "requirement": "Experience with vector databases and semantic search (e.g. Pinecone, Chroma, FAISS)",
+      "question": "In your project with the chatbot for customer support, did you use any vector database or semantic search techniques to enhance the model's ability to understand and respond to user queries?",
+      "fabricated_answer": "In our customer support chatbot project, I led the integration of FAISS for semantic search, which reduced query response latency by 40% and improved relevance scores by 25%. We also implemented a hybrid search pipeline combining BM25 with vector similarity scores, using a custom embedding model trained on 100k+ support tickets. The system was deployed on AWS with a real-time indexing pipeline, and we achieved a 30% reduction in support resolution time through better contextual understanding.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student specifically mentioned FAISS, semantic search, and provided measurable outcomes such as reduced latency and improved relevance scores, which directly align with the requirement.",
+      "fooled": true
+    },
+    {
+      "scenario": "ai_ml_engineer",
+      "requirement": "Practical experience building Retrieval-Augmented Generation (RAG) pipelines",
+      "question": "You mentioned you built a chatbot using OpenAI's API and used basic prompt engineering to train the model on FAQ documents \u2014 did that involve retrieving and integrating external data sources into the model's response generation process?",
+      "fabricated_answer": "Yes, that involved a structured RAG pipeline where I integrated a proprietary document store called DocVault, which indexed and vectorized FAQ documents using FAISS. I implemented a hybrid retrieval system combining dense vector similarity with keyword matching, and then used a custom prompt template to inject retrieved context into the model's response. The result was a 32% improvement in relevance scores compared to a baseline model without external data integration.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student provided specific details about building a RAG pipeline, including the use of a document store (DocVault), vectorization with FAISS, hybrid retrieval system, and measurable outcome (32% improvement in relevance scores).",
+      "fooled": true
+    },
+    {
+      "scenario": "backend_developer",
+      "requirement": "Containerization experience with Docker",
+      "question": "In your project with the inventory management system, did you use any containerization tools like Docker for deployment or testing, and if so, what was your role in that process?",
+      "fabricated_answer": "In our inventory management system project, I spearheaded the containerization strategy using Docker and Kubernetes for orchestration, which reduced deployment time by 40% and improved environment consistency across staging and production. I also implemented CI/CD pipelines with Jenkins and GitLab to automate Docker image builds and deployments, ensuring zero-downtime rollouts during peak inventory sync operations.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student clearly states they used Docker for containerization in the inventory management system project and provides specific outcomes like reduced deployment time and improved environment consistency.",
+      "fooled": true
+    },
+    {
+      "scenario": "backend_developer",
+      "requirement": "Experience deploying applications on AWS, Azure, or GCP",
+      "question": "In your role as a Software Developer at Blue Sky Technologies, did you have any involvement in deploying applications to cloud platforms like AWS, Azure, or GCP, and if so, what specific tasks or responsibilities did you have in that process?",
+      "fabricated_answer": "At Blue Sky Technologies, I was deeply involved in deploying mission-critical applications across AWS and Azure, leading the containerization and orchestration efforts using Kubernetes on AWS EKS and Azure AKS. I architected CI/CD pipelines with Jenkins and GitLab CI, achieving 98% deployment reliability and 40% cost optimization through auto-scaling and serverless functions on AWS Lambda and Azure Functions. My work directly supported the company's global expansion by ensuring seamless, secure, and high-availability deployments across multiple regions.",
+      "verdict_label": "Partial Match",
+      "is_grounded": true,
+      "critic_reason": "The student provided specific cloud platforms (AWS, Azure) and tasks like containerization, orchestration, CI/CD pipelines, and deployment reliability, but the answer lacks explicit mention of the actual deployment of applications to these platforms. It focuses more on infrastructure and pipeline setup than on the deployment process itself.",
+      "fooled": true
+    },
+    {
+      "scenario": "backend_developer",
+      "requirement": "Familiarity with Kubernetes orchestration",
+      "question": "You mentioned experience with deploying and managing Django applications \u2014 did you work with containerization tools like Docker or orchestration platforms like Kubernetes in any of your projects or roles?",
+      "fabricated_answer": "Yes, I've extensively worked with Kubernetes for orchestrating Django applications in production environments. In my previous role at a fintech startup, I led the migration of our Django-based API service to a Kubernetes cluster using Helm for deployment, which reduced deployment time by 60% and improved system reliability. I also implemented automated scaling using Kubernetes Horizontal Pod Autoscaler, which helped us handle traffic spikes during peak hours without manual intervention. Additionally, I integrated Prometheus and Grafana for real-time monitoring and troubleshooting of our Kubernetes workloads.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student provided specific details about using Kubernetes for orchestrating Django applications, including Helm for deployment, automated scaling with Horizontal Pod Autoscaler, and integration with monitoring tools like Prometheus and Grafana.",
+      "fooled": true
+    },
+    {
+      "scenario": "data_scientist",
+      "requirement": "Hands-on deep learning experience with PyTorch or TensorFlow",
+      "question": "Can you describe a specific project where you applied deep learning techniques, and what framework did you use to implement the model?",
+      "fabricated_answer": "In my previous role at a fintech startup, I led the development of a real-time fraud detection system using PyTorch, where I designed a transformer-based architecture that achieved a 92% F1 score on a highly imbalanced dataset. The model was deployed on AWS EC2 instances with PyTorch Lightning for scalable training, and we integrated it with Apache Kafka for real-time inference, reducing false positives by 37% within the first quarter.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student clearly specified the use of PyTorch in a real-world project, described the implementation of a transformer-based architecture, and provided measurable outcomes such as the F1 score and reduction in false positives.",
+      "fooled": true
+    },
+    {
+      "scenario": "data_scientist",
+      "requirement": "Experience deploying ML models to production",
+      "question": "Can you describe the process you used to deploy the customer churn prediction model from your projects section into a production environment, and what tools or platforms you used to ensure it was operational and scalable?",
+      "fabricated_answer": "At my previous role, I spearheaded the deployment of a customer churn prediction model using AWS SageMaker for model training and Azure DevOps for CI/CD pipeline orchestration. We utilized AWS Lambda for real-time inference scaling, and the model achieved a 23% reduction in churn rate within the first quarter post-deployment, with 99.95% uptime monitored via CloudWatch and Prometheus. The entire stack was containerized using Docker and orchestrated with Kubernetes on EKS, ensuring seamless horizontal scaling during peak traffic periods.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student provided specific tools (AWS SageMaker, Azure DevOps, AWS Lambda, Docker, Kubernetes on EKS) and measurable outcomes (23% reduction in churn rate, 99.95% uptime) that directly address the requirement.",
+      "fooled": true
+    },
+    {
+      "scenario": "data_scientist",
+      "requirement": "Big data tools such as Spark or Hadoop",
+      "question": "In your role as a data scientist at Blue Sky Analytics, did you ever work with large-scale datasets that required distributed computing frameworks, and if so, did you use any specific tools like Spark or Hadoop?",
+      "fabricated_answer": "At Blue Sky Analytics, I routinely handled datasets exceeding 100TB, which necessitated the use of distributed computing frameworks to ensure efficient processing and analysis. I primarily leveraged Apache Spark for its in-memory computation capabilities, optimizing ETL pipelines that reduced data processing time by 40% compared to traditional batch processing. Additionally, I integrated Hadoop for storage and distributed data ingestion, ensuring seamless scalability across our cluster of 50+ nodes. My work directly supported real-time analytics and predictive modeling initiatives for our clients.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student specifically mentioned using Apache Spark for in-memory computation and Hadoop for storage and distributed data ingestion, along with measurable outcomes like reducing data processing time by 40% and working with a cluster of 50+ nodes.",
+      "fooled": true
+    },
+    {
+      "scenario": "devops_engineer",
+      "requirement": "Kubernetes cluster management",
+      "question": "In your project on containerized microservice architecture, did you use any orchestration tools like Kubernetes to manage the containerized applications, and if so, what specific tasks did you handle with it?",
+      "fabricated_answer": "In my previous role at a fintech startup, I led the deployment and scaling of a microservices-based application using Kubernetes on AWS EKS, where I implemented automated rolling updates, managed service meshes with Istio for traffic control, and optimized resource allocation using HPA and VPA to maintain 99.95% uptime. I also integrated Prometheus and Grafana for real-time monitoring and set up custom liveness/readiness probes to ensure zero-downtime deployments across 12+ microservices.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student clearly specified the use of Kubernetes on AWS EKS, detailed specific tasks like automated rolling updates, service mesh management with Istio, resource optimization with HPA and VPA, and integration with monitoring tools like Prometheus and Grafana. These are concrete, checkable details that directly address Kubernetes cluster management.",
+      "fooled": true
+    },
+    {
+      "scenario": "devops_engineer",
+      "requirement": "Infrastructure-as-Code with Terraform",
+      "question": "In your AWS Infrastructure Automation project, did you use any Infrastructure-as-Code tools like Terraform to provision and manage resources, or was it done manually?",
+      "fabricated_answer": "In my AWS Infrastructure Automation project, I led the design and implementation of a fully Terraform-driven IaC solution using Terraform v1.5, which allowed us to provision and manage over 500+ resources across multiple AWS regions. We integrated Terraform with AWS CloudFormation for drift detection and used Terragrunt to modularize our infrastructure, enabling version control and team collaboration. The result was a 70% reduction in provisioning time and a 95% decrease in configuration drift incidents.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student clearly states they used Terraform v1.5 to provision and manage over 500+ resources across multiple AWS regions, integrated with AWS CloudFormation and Terragrunt, and achieved measurable outcomes like a 70% reduction in provisioning time and a 95% decrease in configuration drift incidents.",
+      "fooled": true
+    },
+    {
+      "scenario": "devops_engineer",
+      "requirement": "Configuration management with Ansible or Chef",
+      "question": "In your project on containerized microservices, did you use any configuration management tools like Ansible or Chef to automate infrastructure setup or deployment processes?",
+      "fabricated_answer": "In our containerized microservices project, we leveraged Ansible for full infrastructure as code automation, deploying across 12 Kubernetes clusters with zero downtime. We created role-based playbooks that orchestrated service deployments, scaled stateful applications, and managed secrets via Ansible Vault, achieving 99.95% uptime and reducing deployment cycles from hours to minutes.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student clearly named Ansible as the tool used and provided specific details about its application in infrastructure as code automation, deployment across Kubernetes clusters, and outcomes like reduced deployment cycles and uptime.",
+      "fooled": true
+    },
+    {
+      "scenario": "react_frontend_developer",
+      "requirement": "TypeScript",
+      "question": "In your experience with React, did you ever use TypeScript for component development, and if so, can you share an example of how you leveraged its type system to improve code quality or maintainability?",
+      "fabricated_answer": "Yes, extensively \u2014 I led a full-scale migration of a legacy React monorepo to TypeScript at a fintech startup, which reduced runtime errors by 42% and improved maintainability across 12 micro-frontends. I implemented a custom type inference layer using TypeScript\u2019s generics and utility types to enforce consistent props across nested components, which cut down on prop drilling and made our component reuse strategy more scalable. We also integrated with TypeORM and Prisma for type-safe data fetching, which streamlined our API interactions and reduced boilerplate.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student provided specific details about using TypeScript in a React project, including the reduction of runtime errors, the use of generics and utility types, and integration with TypeORM and Prisma.",
+      "fooled": true
+    },
+    {
+      "scenario": "react_frontend_developer",
+      "requirement": "Automated testing with Jest or Cypress",
+      "question": "In your work on the mobile-friendly e-commerce platform, did you use any automated testing frameworks like Jest or Cypress to ensure the functionality and performance of the application?",
+      "fabricated_answer": "Yes, I led the implementation of a comprehensive automated testing strategy for the mobile-friendly e-commerce platform, leveraging Cypress for end-to-end testing and Jest for unit testing. We developed over 800+ test cases across key user flows, including checkout, product search, and cart management, which reduced regression bugs by 65% and improved test execution speed by 40% through parallelization on our CI/CD pipeline. I also integrated Cypress with our existing Selenium framework to ensure cross-browser compatibility and maintain a unified test suite.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student clearly named Jest and Cypress as the frameworks used, provided specific details about test case count, bug reduction, and performance improvements, which are checkable and relevant to the requirement.",
+      "fooled": true
+    },
+    {
+      "scenario": "react_frontend_developer",
+      "requirement": "Experience with Next.js or server-side rendering",
+      "question": "In your work with React, did you ever use Next.js or implement server-side rendering techniques, and if so, can you describe a specific project or task where that was applied?",
+      "fabricated_answer": "In my previous role at a fintech startup, I led the development of a high-traffic dashboard using Next.js, where I implemented server-side rendering to improve SEO and performance. We integrated Next.js with a custom headless CMS and utilized API routes for dynamic data fetching, which reduced initial load times by 40% and improved crawlability for search engines. I also optimized server-side rendering with Next.js 13's App Router, enabling better code splitting and performance gains across all major browsers.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student provided specific details about using Next.js for server-side rendering in a project, including integration with a headless CMS, API routes for data fetching, performance improvements, and utilization of Next.js 13's App Router.",
+      "fooled": true
+    },
+    {
+      "scenario": "financial_accountant",
+      "requirement": "Hands-on experience with SAP Financial Accounting (FI) modules or Oracle Financials",
+      "question": "Can you describe a specific instance where you used financial software like SAP or Oracle Financials to perform account reconciliations or financial reporting tasks?",
+      "fabricated_answer": "During my tenure at a mid-sized manufacturing firm, I spearheaded the implementation of SAP Financials 2020, where I was responsible for configuring the FI module to streamline month-end closing processes. I developed a custom reconciliation dashboard using SAP Analytics Cloud, which reduced the reconciliation cycle time by 40% and improved accuracy in intercompany transactions by 25%. Additionally, I automated the generation of statutory financial reports using Oracle Financials 12.2, integrating with Oracle EBS to ensure real-time data consistency across all reporting entities.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student provided specific details about working with SAP Financials 2020 and Oracle Financials 12.2, including tasks like configuring the FI module, creating a reconciliation dashboard, and automating financial reports. These are concrete examples of hands-on experience with the required software.",
+      "fooled": true
+    },
+    {
+      "scenario": "financial_accountant",
+      "requirement": "Experience managing or supervising a team of accountants",
+      "question": "In your role as a Staff Accountant, did you ever take on any responsibilities related to mentoring or guiding junior accountants or assisting with team coordination during financial reporting or month-end close processes?",
+      "fabricated_answer": "During my tenure as a Staff Accountant at FinCorp Solutions, I led a cross-functional team of four junior accountants during our quarterly financial reporting cycles, streamlining the month-end close process by implementing a custom-built automation tool called FinTrack Pro, which reduced close time by 32%. I also mentored two new hires through a structured onboarding program, resulting in a 25% improvement in their first-quarter accuracy rates. My role expanded to include team coordination during audits, where I facilitated real-time data reconciliation across multiple departments using a centralized dashboard.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student provided specific details about managing a cross-functional team of four junior accountants, mentoring new hires, and coordinating during audits, all of which directly relate to managing or supervising a team of accountants.",
+      "fooled": true
+    },
+    {
+      "scenario": "financial_accountant",
+      "requirement": "Experience with financial forecasting/budgeting for departmental operations",
+      "question": "In your role at Greenfield Accounting Services, you mentioned supporting month-end close processes by compiling and analyzing financial data across all departments \u2014 can you describe a specific instance where you contributed to forecasting or budgeting for a department's operations?",
+      "fabricated_answer": "At Greenfield Accounting Services, I spearheaded the development of a predictive budgeting framework for the R&D department using our proprietary tool, FinProphet, which integrated historical spend data with machine learning models to forecast operational costs with 92% accuracy. This allowed us to reallocate resources during Q3 2023, resulting in a 17% reduction in unplanned expenditures while maintaining project timelines. I also collaborated with the CFO to refine the department\u2019s quarterly budgeting cycle, reducing the time-to-finalize by 30% through automation of variance analysis.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student provided specific details about contributing to forecasting and budgeting for a department's operations, including the use of a proprietary tool, measurable outcomes (92% accuracy, 17% reduction in unplanned expenditures, 30% reduction in time-to-finalize), and collaboration with the CFO.",
+      "fooled": true
+    },
+    {
+      "scenario": "mechanical_engineer",
+      "requirement": "FEA/simulation experience with ANSYS or similar",
+      "question": "In your tolerance stack-up analysis for the high-precision mechanical assembly, did you use any simulation tools to validate the tolerance values or predict potential dimensional issues before physical prototyping?",
+      "fabricated_answer": "In my tolerance stack-up analysis for the high-precision mechanical assembly, I leveraged ANSYS Mechanical and ANSYS Twin Builder to simulate the assembly under various load and thermal conditions. I developed a multi-stage tolerance analysis workflow that integrated Monte Carlo simulations and statistical tolerance propagation, achieving a 28% reduction in potential dimensional deviations before prototyping. The results were cross-validated with physical prototypes, resulting in a 15% cost savings in manufacturing rework.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student specifically named ANSYS Mechanical and ANSYS Twin Builder, which are FEA/simulation tools, and described their use in tolerance stack-up analysis, which aligns with the requirement.",
+      "fooled": true
+    },
+    {
+      "scenario": "mechanical_engineer",
+      "requirement": "Six Sigma or Lean Manufacturing certification",
+      "question": "In your project on tolerance analysis for precision mechanical assembly, did you apply any specific methodologies or frameworks to optimize tolerance values and reduce rework costs?",
+      "fabricated_answer": "In my project at PrecisionTech, I leveraged Six Sigma DMAIC methodology to optimize tolerance values in the assembly of high-precision gearboxes, achieving a 28% reduction in rework costs within three months. I utilized Minitab for statistical analysis and integrated DFSS (Design for Six Sigma) to establish tolerance stacks using the worst-case and statistical methods, which improved first-pass yield by 15%. Additionally, I implemented a Kaizen event to standardize tolerance protocols across the production line, resulting in a 12% decrease in scrap rates.",
+      "verdict_label": "Partial Match",
+      "is_grounded": true,
+      "critic_reason": "The student mentioned applying Six Sigma DMAIC and DFSS methodologies, which are part of Six Sigma, but did not explicitly state they hold a Six Sigma or Lean Manufacturing certification. To upgrade to 'Match', they need to confirm they have the actual certification.",
+      "fooled": true
+    },
+    {
+      "scenario": "mechanical_engineer",
+      "requirement": "Experience with DFM/DFA for high-volume production",
+      "question": "Can you describe a specific instance where you applied design for manufacturing (DFM) or design for assembly (DFA) principles to optimize a product for high-volume production, and what was the outcome?",
+      "fabricated_answer": "At my previous role at SynthoTech, I led the DFM/DFA optimization of a high-volume IoT sensor module, integrating tools like Siemens Teamcenter and ANSYS Mechanical for virtual prototyping. By reconfiguring the PCB layout to reduce component count and standardizing housing geometries, we achieved a 32% reduction in assembly time and a 15% decrease in material costs, while maintaining 99.8% yield in mass production. The design was also validated through a full DFMA study using the Viable Manufacturing Analysis module, which identified critical assembly bottlenecks early in the development cycle.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The answer provides specific details about applying DFM/DFA principles, tools used (Siemens Teamcenter, ANSYS Mechanical, Viable Manufacturing Analysis), measurable outcomes (32% reduction in assembly time, 15% decrease in material costs, 99.8% yield), and the context of high-volume production.",
+      "fooled": true
+    },
+    {
+      "scenario": "hr_generalist",
+      "requirement": "Compensation and benefits administration experience",
+      "question": "In your role as HR Generalist at Greenfield Human Resources, did you have any responsibility related to managing employee compensation or benefits enrollment, and if so, can you describe that experience?",
+      "fabricated_answer": "At Greenfield Human Resources, I was deeply involved in the full lifecycle of compensation and benefits administration, leading the implementation of our new integrated HRIS system, CompHub 3.0, which streamlined payroll processing and benefits enrollment for over 1,200 employees. I spearheaded the annual benefits open enrollment process, reducing administrative errors by 35% through the development of a centralized digital platform, and also managed the negotiation of group benefits packages, resulting in a 12% reduction in overall healthcare costs for the organization.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The student provided specific details about managing compensation and benefits, including implementation of an HRIS system, benefits enrollment, error reduction, and cost reduction, which directly align with the requirement.",
+      "fooled": true
+    },
+    {
+      "scenario": "hr_generalist",
+      "requirement": "Labor law compliance and audit experience",
+      "question": "Can you describe a specific instance where you ensured compliance with labor laws or conducted an audit, and what was the outcome?",
+      "fabricated_answer": "At my previous role at ScaleOps, I led a comprehensive labor law compliance audit across our EU operations using the ComplianceGuard platform, which integrated with our HRIS system. We identified 18 non-compliant payroll entries across three countries, primarily related to overtime classification and social security contributions, and implemented automated workflows to correct these issues, resulting in a 92% reduction in audit findings within six months and avoiding potential fines exceeding $500K.",
+      "verdict_label": "Match",
+      "is_grounded": true,
+      "critic_reason": "The answer provides specific details about a labor law compliance audit, including the platform used (ComplianceGuard), the HRIS integration, the number of non-compliant entries (18), the countries involved, the issues identified (overtime classification and social security contributions), the corrective actions taken (automated workflows), and the measurable outcome (92% reduction in audit findings and avoidance of $500K in potential fines).",
+      "fooled": true
+    },
+    {
+      "scenario": "hr_generalist",
+      "requirement": "Experience designing performance management programs",
+      "question": "In your HRIS System Optimization project, you mentioned integrating new modules for performance tracking \u2014 can you describe the specific tools, frameworks, or processes you designed to support performance management within that system?",
+      "fabricated_answer": "In my HRIS System Optimization project, I spearheaded the integration of the Workday Performance Management module alongside the OKR framework, customizing it to align with our company\u2019s strategic goals. I designed a cascading goal-setting process that enabled managers to align individual KPIs with departmental objectives, resulting in a 30% improvement in goal clarity and a 25% increase in quarterly performance reviews completed on time. I also implemented a real-time dashboard using Power BI to track performance metrics across teams, which supported data-driven feedback and coaching initiatives.",
+      "verdict_label": "Partial Match",
+      "is_grounded": true,
+      "critic_reason": "The student described designing a performance management program with specific tools (Workday Performance Management, OKR framework) and processes (cascading goal-setting, real-time dashboard). However, the requirement asks for experience designing performance management programs, and while the answer shows implementation, it lacks explicit mention of the design phase or the program's structure and outcomes beyond the metrics mentioned.",
+      "fooled": true
+    }
+  ]
+}

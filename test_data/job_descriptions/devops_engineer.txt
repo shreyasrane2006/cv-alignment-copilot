@@ -1,0 +1,28 @@
+COMPANY BLURB  
+NexaCore Solutions is a fast-growing tech company specializing in cloud-based enterprise software for the healthcare industry. We empower hospitals and clinics with scalable, secure, and compliant digital solutions that improve patient care and operational efficiency. Why join us? Because we believe in making a real impact through innovative technology.  
+
+RESPONSIBILITIES  
+- Design and implement automated deployment pipelines to streamline application releases  
+- Monitor and maintain system performance to ensure high availability and reliability  
+- Collaborate with development teams to integrate testing and deployment processes  
+- Troubleshoot and resolve production issues quickly to minimize downtime  
+- Document infrastructure and deployment processes for team consistency and knowledge sharing  
+- Continuously improve CI/CD practices to enhance efficiency and reduce manual tasks
+
+Qualification
+
+Required
+
+- Docker
+- CI/CD pipelines (GitHub Actions)
+- Linux administration
+- Bash scripting
+- AWS EC2 and S3
+- Kubernetes cluster management
+- Infrastructure-as-Code with Terraform
+- Configuration management with Ansible or Chef
+
+Preferred
+
+- Monitoring/observability tools (Prometheus, Grafana)
+- Experience with multi-cloud environments
